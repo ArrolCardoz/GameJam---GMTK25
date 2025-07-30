@@ -1,5 +1,5 @@
 extends Resource
-class_name Items
+class_name Item
 
 @export var name:String
 @export var scene:PackedScene

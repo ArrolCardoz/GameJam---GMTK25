@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://ckr4ebkp6acrv"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dh8u6yqip86yu"]
 
 [ext_resource type="Script" uid="uid://wfrssyq221ic" path="res://classes/Items.gd" id="1_rx2hk"]
 [ext_resource type="PackedScene" uid="uid://cff0gtr7wdq7b" path="res://scenes/Pickup/Items/Pizza.tscn" id="1_ux7ec"]

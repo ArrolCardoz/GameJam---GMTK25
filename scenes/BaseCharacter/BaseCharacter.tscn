@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://dw6u54x075ky8"]
+[gd_scene load_steps=2 format=3 uid="uid://dw6u54x075ky8"]
+
+[ext_resource type="Script" uid="uid://vomfxlgsogih" path="res://scenes/BaseCharacter/BaseCharacter.gd" id="1_uu38w"]
 
 [node name="BaseCharacter" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_uu38w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]

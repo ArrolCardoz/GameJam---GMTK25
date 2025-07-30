@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d2lj5xkxm17oi"]
+
+[ext_resource type="Script" uid="uid://wfrssyq221ic" path="res://classes/Items.gd" id="1_4scof"]
+[ext_resource type="PackedScene" uid="uid://garyct2dauu4" path="res://scenes/Pickup/Items/dough.tscn" id="1_kshas"]
+
+[resource]
+script = ExtResource("1_4scof")
+name = "Dough"
+scene = ExtResource("1_kshas")
+metadata/_custom_type_script = "uid://wfrssyq221ic"

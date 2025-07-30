@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlgsl82y3henb"]
+[gd_scene load_steps=7 format=3 uid="uid://dlgsl82y3henb"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_h00vy"]
 [ext_resource type="Script" uid="uid://d1hu0jjyv0tvv" path="res://scenes/Player/Player.gd" id="2_bvqhm"]
 [ext_resource type="Texture2D" uid="uid://bgddvgvwxouk2" path="res://assets/player/player-single.png" id="2_ky53y"]
 [ext_resource type="PackedScene" uid="uid://dyqufabbo10f0" path="res://scenes/Camera/Camera.tscn" id="4_ved6o"]
+[ext_resource type="PackedScene" uid="uid://trgvgi1yvd5i" path="res://scenes/PickupAction/PickupAction.tscn" id="5_xcisb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky53y"]
 radius = 9.0
@@ -13,6 +14,7 @@ height = 24.0
 collision_layer = 1
 collision_mask = 8
 script = ExtResource("2_bvqhm")
+MOVE_SPEED = 250.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CapsuleShape2D_ky53y")
@@ -23,7 +25,4 @@ texture = ExtResource("2_ky53y")
 [node name="Camera" parent="." index="2" instance=ExtResource("4_ved6o")]
 zoom = Vector2(0.7, 0.7)
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
-target_position = Vector2(25, 0)
-collision_mask = 8
-collide_with_areas = true
+[node name="PickupAction" parent="." index="4" instance=ExtResource("5_xcisb")]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://garyct2dauu4"]
+
+[ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="1_phrjv"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_phrjv")
+hframes = 5
+vframes = 2
+frame = 4

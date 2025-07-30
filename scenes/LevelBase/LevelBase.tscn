@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=7 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
 [ext_resource type="PackedScene" uid="uid://dlgsl82y3henb" path="res://scenes/Player/Player.tscn" id="3_ny4ya"]
-[ext_resource type="PackedScene" uid="uid://cff0gtr7wdq7b" path="res://scenes/Pickup/Items/Pizza.tscn" id="4_u8cij"]
+[ext_resource type="PackedScene" uid="uid://bjbf6od1ctt8f" path="res://scenes/Pickup/Pickup.tscn" id="4_u8cij"]
+[ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/pizza.tres" id="5_7hghd"]
+[ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="6_ri8w3"]
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_nrmop")
@@ -18,6 +20,11 @@ tile_set = ExtResource("2_e7jje")
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
+MOVE_SPEED = 250.0
 
-[node name="Pizza" parent="." instance=ExtResource("4_u8cij")]
-position = Vector2(145, 84)
+[node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
+item = ExtResource("5_7hghd")
+
+[node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(180, 81)
+item = ExtResource("6_ri8w3")
