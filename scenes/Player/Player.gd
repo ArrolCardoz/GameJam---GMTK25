@@ -6,11 +6,15 @@ class_name Player
 
 const RAYCASE_LENGTH:float=50
 
-var _item_in_range:Array[Item]
+var _pickups_in_range:Array[Pickup]
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("select") and _item_in_range.size()>0:
-		print("I got a : ",_item_in_range[0].name)
+	if Input.is_action_just_pressed("select") and _pickups_in_range.size()>0:
+
+		var pickup:Pickup=_pickups_in_range[0]
+		print("I got a : ",pickup.item.name)
+
+		pickup.die()
 
 
 
@@ -29,8 +33,8 @@ func process_input()->Vector2:
 	return move.normalized()
 
 
-func on_item_picked_up(item:Item)->void:
-	_item_in_range.append(item)
+func on_item_picked_up(pickup:Pickup)->void:
+	_pickups_in_range.append(pickup)
 
-func on_item_out_of_range(item:Item)->void:
-	_item_in_range.erase(item)
+func on_item_out_of_range(pickup:Pickup)->void:
+	_pickups_in_range.erase(pickup)

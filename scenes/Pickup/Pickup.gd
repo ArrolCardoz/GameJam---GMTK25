@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Pickup
 @export var item:Item
 
 func _ready() -> void:
@@ -8,14 +8,17 @@ func _ready() -> void:
 
 
 
+func die()->void:
+	call_deferred("queue_free")
+
 
 func _on_area_entered(area: Area2D) -> void:
 	var parent:= area.get_parent()
 	if parent is PickupAction:
-		parent.get_character().on_item_picked_up(item)
+		parent.get_character().on_item_picked_up(self)
 
 
 func _on_area_exited(area: Area2D) -> void:
 	var parent:= area.get_parent()
 	if parent is PickupAction:
-		parent.get_character().on_item_out_of_range(item)
+		parent.get_character().on_item_out_of_range(self)
