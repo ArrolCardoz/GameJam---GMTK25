@@ -38,10 +38,10 @@ naming/script_name_casing=1
 folder_colors={
 "res://assets/": "red",
 "res://classes/": "orange",
-"res://globals/": "yellow",
-"res://resources/": "green",
-"res://scenes/": "teal",
-"res://tools/": "blue"
+"res://globals/": "green",
+"res://resources/": "teal",
+"res://scenes/": "blue",
+"res://tools/": "purple"
 }
 
 [input]
@@ -82,6 +82,7 @@ select={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="NPC"
 2d_physics/layer_3="Walls"
+2d_physics/layer_4="Items"
 
 [rendering]
 

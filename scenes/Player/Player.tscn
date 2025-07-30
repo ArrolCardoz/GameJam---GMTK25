@@ -10,6 +10,8 @@ radius = 9.0
 height = 24.0
 
 [node name="Player" instance=ExtResource("1_h00vy")]
+collision_layer = 1
+collision_mask = 8
 script = ExtResource("2_bvqhm")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -20,3 +22,8 @@ texture = ExtResource("2_ky53y")
 
 [node name="Camera" parent="." index="2" instance=ExtResource("4_ved6o")]
 zoom = Vector2(0.7, 0.7)
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+target_position = Vector2(25, 0)
+collision_mask = 8
+collide_with_areas = true
