@@ -50,9 +50,7 @@ func update_debug_label()->void:
 	debug_label.text=s
 
 func update_hud(item:Item)->void:
-	_inventory.remove_item(item)
 	SignalHub.emit_add_item_to_player(_inventory)
-
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=13 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -8,6 +8,10 @@
 [ext_resource type="Resource" uid="uid://4ja66pues0mk" path="res://resources/Items/pepproniDough.tres" id="5_6hn50"]
 [ext_resource type="Resource" uid="uid://b7dnjafv04qe6" path="res://resources/Items/rolledDough.tres" id="6_efum6"]
 [ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
+[ext_resource type="Resource" uid="uid://brw6dpv2tptrn" path="res://resources/Items/cheesePizzaSliced.tres" id="7_ois7l"]
+[ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
+[ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_c3lg8"]
+[ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_nrmop")
@@ -35,11 +39,11 @@ item = ExtResource("5_6hn50")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(179, 45)
-item = ExtResource("6_efum6")
+item = ExtResource("7_ois7l")
 
 [node name="Pickup3" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(274, 62)
-item = ExtResource("6_efum6")
+item = ExtResource("8_ymbih")
 
 [node name="Pickup4" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(249, 135)
@@ -47,11 +51,11 @@ item = ExtResource("6_efum6")
 
 [node name="Pickup5" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(158, 149)
-item = ExtResource("6_efum6")
+item = ExtResource("10_c3lg8")
 
 [node name="Pickup6" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(55, 144)
-item = ExtResource("6_efum6")
+item = ExtResource("11_uw25i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
