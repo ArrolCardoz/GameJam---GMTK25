@@ -16,27 +16,28 @@ func _enter_tree() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("select"):
+	if Input.is_action_just_pressed("pick"):
 		#pick item
 		if _inventory.isNotFull() and _pickups_in_range.size()>0:
 			var pickup:Pickup=_pickups_in_range[0]
 			_inventory.add_item(pickup.getItem())
 			SignalHub.emit_add_item_to_player(_inventory)
 			pickup.die()
-		#place item on station
+		#pick item on station
 		elif !_inventory.isEmpty() and _stations_in_range.size()>0:
+			pickItemInStation()
+		#pick item from station
+		elif _inventory.isNotFull() and _stations_in_range.size()>0:
+			pickItemInStation()
+
+
+	elif Input.is_action_just_pressed("drop"):
+		#place item on station
+		if !_inventory.isEmpty() and _stations_in_range.size()>0:
 			if !_stations_in_range[0]._isFull:
 				SignalHub.emit_drop_item_from_player(_inventory)
 			else:
-				var item:Item=_stations_in_range[0].getItem()
-				_inventory.add_item(item)
-				SignalHub.emit_drop_item_from_player(_inventory)
-
-		#pick item from station
-		elif _inventory.isNotFull() and _stations_in_range.size()>0:
-			pass
-
-
+				swapItemInStation()
 
 
 
@@ -55,9 +56,20 @@ func process_input()->Vector2:
 
 func update_debug_label()->void:
 	var s:String=""
-	s+=str(_pickups_in_range.size())
-	s+=str(_stations_in_range.size())
-	debug_label.text=s
+	debug_label.text = "Pickups: %d, Stations: %d" % [_pickups_in_range.size(), _stations_in_range.size()]
+
+func pickItemInStation()->void:
+	if _stations_in_range[0]._isFull:
+		var item:Item=_stations_in_range[0].getItem()
+		_stations_in_range[0].remove_item()
+		_inventory.add_item(item)
+		SignalHub.emit_add_item_to_player(_inventory)
+
+func swapItemInStation()->void:
+	if _stations_in_range[0]._isFull:
+				var item:Item=_stations_in_range[0].getItem()
+				_inventory.add_item(item)
+				SignalHub.emit_drop_item_from_player(_inventory)
 
 func update_hud(item:Item)->void:
 	_stations_in_range[0].place_item(item)

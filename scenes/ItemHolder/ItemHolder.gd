@@ -33,6 +33,14 @@ func place_item(item)->void:
 		_isFull=true
 		marker.show()
 
+func remove_item()->void:
+	for marker in markers.get_children():
+		var sprite:Sprite2D = marker.get_node("Sprite2D")
+		if sprite==null:return
+		_item=null
+		_isFull=false
+		marker.hide()
+
 
 func _on_area_entered(area: Area2D) -> void:
 	var parent:= area.get_parent()
