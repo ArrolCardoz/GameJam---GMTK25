@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlgsl82y3henb" path="res://scenes/Player/Player.tscn" id="3_ny4ya"]
 [ext_resource type="PackedScene" uid="uid://bjbf6od1ctt8f" path="res://scenes/Pickup/Pickup.tscn" id="4_u8cij"]
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/pizza.tres" id="5_7hghd"]
-[ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="6_ri8w3"]
+[ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_nrmop")
@@ -20,10 +20,16 @@ tile_set = ExtResource("2_e7jje")
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
+MOVE_SPEED = 250.0
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
 item = ExtResource("5_7hghd")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(180, 81)
-item = ExtResource("6_ri8w3")
+item = ExtResource("5_7hghd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="InventoryDialog" parent="CanvasLayer" instance=ExtResource("7_6hn50")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlgsl82y3henb"]
+[gd_scene load_steps=8 format=3 uid="uid://dlgsl82y3henb"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_h00vy"]
 [ext_resource type="Script" uid="uid://d1hu0jjyv0tvv" path="res://scenes/Player/Player.gd" id="2_bvqhm"]
@@ -9,6 +9,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky53y"]
 radius = 9.0
 height = 24.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xcisb"]
+font_size = 121
 
 [node name="Player" instance=ExtResource("1_h00vy")]
 collision_layer = 1
@@ -26,3 +29,12 @@ texture = ExtResource("2_ky53y")
 zoom = Vector2(0.7, 0.7)
 
 [node name="PickupAction" parent="." index="4" instance=ExtResource("5_xcisb")]
+
+[node name="DebugLabel" type="Label" parent="." index="5"]
+offset_left = -15.0
+offset_top = -34.0
+offset_right = 261.0
+offset_bottom = 132.0
+scale = Vector2(0.107233, 0.107233)
+text = "0000"
+label_settings = SubResource("LabelSettings_xcisb")

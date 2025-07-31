@@ -9,6 +9,8 @@ func _ready() -> void:
 
 
 func die()->void:
+	monitorable=false
+	monitoring=false
 	call_deferred("queue_free")
 
 

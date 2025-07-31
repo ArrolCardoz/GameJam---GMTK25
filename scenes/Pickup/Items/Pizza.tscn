@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cff0gtr7wdq7b"]
+[gd_scene load_steps=3 format=3 uid="uid://cff0gtr7wdq7b"]
 
-[ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="2_s1v12"]
+[ext_resource type="SpriteFrames" uid="uid://bglh25b2jpklr" path="res://scenes/Pickup/Items/Pizza.tres" id="1_vi73l"]
+[ext_resource type="Script" uid="uid://nva07gxtswld" path="res://scenes/Pickup/Items/Pizza.gd" id="2_s1v12"]
 
-[node name="Pizza" type="Sprite2D"]
-texture = ExtResource("2_s1v12")
-hframes = 5
-vframes = 2
+[node name="Pizza" type="Node2D"]
+script = ExtResource("2_s1v12")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_vi73l")
+animation = &"dough"

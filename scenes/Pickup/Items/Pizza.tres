@@ -1,0 +1,114 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bglh25b2jpklr"]
+
+[ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="1_u3npu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi73l"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1v12"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwgcs"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hub8"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0d3t"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxv43"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4paa0"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfn73"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqty4"]
+atlas = ExtResource("1_u3npu")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi73l")
+}],
+"loop": true,
+"name": &"cheeseDough",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1v12")
+}],
+"loop": true,
+"name": &"cheesePizza",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwgcs")
+}],
+"loop": true,
+"name": &"cheesePizzaSliced",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hub8")
+}],
+"loop": true,
+"name": &"dough",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0d3t")
+}],
+"loop": true,
+"name": &"pepproniDough",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxv43")
+}],
+"loop": true,
+"name": &"pepproniPizza",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4paa0")
+}],
+"loop": true,
+"name": &"pepproniPizzaSliced",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfn73")
+}],
+"loop": true,
+"name": &"rolledDough",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqty4")
+}],
+"loop": true,
+"name": &"sausedDough",
+"speed": 5.0
+}]
