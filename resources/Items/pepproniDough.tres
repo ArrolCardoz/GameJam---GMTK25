@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://4ja66pues0mk"]
+
+[ext_resource type="Script" uid="uid://wfrssyq221ic" path="res://classes/Items.gd" id="1_5dej3"]
+[ext_resource type="Texture2D" uid="uid://ccqion8vymk37" path="res://assets/Item/pizza/pepproniDough.png" id="2_rgnx0"]
+
+[resource]
+script = ExtResource("1_5dej3")
+name = "pepproniDough"
+texture = ExtResource("2_rgnx0")
+metadata/_custom_type_script = "uid://wfrssyq221ic"

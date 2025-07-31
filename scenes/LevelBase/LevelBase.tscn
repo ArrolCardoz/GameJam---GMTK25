@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=8 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
 [ext_resource type="PackedScene" uid="uid://dlgsl82y3henb" path="res://scenes/Player/Player.tscn" id="3_ny4ya"]
 [ext_resource type="PackedScene" uid="uid://bjbf6od1ctt8f" path="res://scenes/Pickup/Pickup.tscn" id="4_u8cij"]
-[ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/pizza.tres" id="5_7hghd"]
+[ext_resource type="Resource" uid="uid://4ja66pues0mk" path="res://resources/Items/pepproniDough.tres" id="5_6hn50"]
+[ext_resource type="Resource" uid="uid://b7dnjafv04qe6" path="res://resources/Items/rolledDough.tres" id="6_efum6"]
 [ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
 
 [node name="LevelBase" type="Node2D"]
@@ -23,11 +24,11 @@ position = Vector2(98, 78)
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(181, 96)
-item = ExtResource("5_7hghd")
+item = ExtResource("5_6hn50")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(180, 81)
-item = ExtResource("5_7hghd")
+item = ExtResource("6_efum6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

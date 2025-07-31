@@ -1,6 +1,7 @@
 extends Area2D
 class_name Pickup
 @export var item:Item
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 
@@ -11,9 +12,7 @@ func setItem(ITEM:Item)->void:
 
 
 func _ready() -> void:
-	var obj=item.scene.instantiate()
-	print(obj)
-	call_deferred("add_child",obj)
+	sprite_2d.texture=item.texture
 
 
 func die()->void:

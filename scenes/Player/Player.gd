@@ -5,7 +5,6 @@ class_name Player
 @onready var pickup_action: PickupAction = $PickupAction
 @onready var debug_label: Label = $DebugLabel
 
-const RAYCASE_LENGTH:float=50
 
 var _inventory:Inventory=Inventory.new(0)
 var _pickups_in_range:Array[Pickup]

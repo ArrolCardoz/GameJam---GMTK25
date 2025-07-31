@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://brw6dpv2tptrn"]
+
+[ext_resource type="Script" uid="uid://wfrssyq221ic" path="res://classes/Items.gd" id="1_3hhm3"]
+[ext_resource type="Texture2D" uid="uid://btxcjep5iip1i" path="res://assets/Item/pizza/cheesePizzaSliced.png" id="2_5t3fa"]
+
+[resource]
+script = ExtResource("1_3hhm3")
+name = "cheesePizzaSliced"
+texture = ExtResource("2_5t3fa")
+metadata/_custom_type_script = "uid://wfrssyq221ic"

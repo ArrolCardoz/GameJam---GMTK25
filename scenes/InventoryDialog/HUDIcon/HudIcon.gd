@@ -9,9 +9,5 @@ func setIsEmpty(value:bool)->void:_is_empty=value
 
 
 func display(item: Item):
-	var instance = item.scene.instantiate()
-	if instance is Pizza:
-		var state_string = instance.getState()
-		var frame_texture = item.icon_frames.get_frame_texture(state_string, 0)
-		texture_rect.texture = frame_texture
-		_is_empty = false
+	texture_rect.texture = item.texture
+	_is_empty = false
