@@ -5,21 +5,17 @@ class_name Player
 @onready var pickup_action: PickupAction = $PickupAction
 @onready var debug_label: Label = $DebugLabel
 
+const INVENTORY_SIZE:int=5
 
-var _inventory:Inventory=Inventory.new(0)
+var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
 var _pickups_in_range:Array[Pickup]
-var _count:int=0
+
 
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("select") and _pickups_in_range.size()>0:
-
+	if Input.is_action_just_pressed("select") and _inventory.isFull() and _pickups_in_range.size()>0:
 		var pickup:Pickup=_pickups_in_range[0]
-		print("I got a : ",pickup.item.name)
-		_count+=1
-		print(pickup.getItem())
-		print(pickup.item)
 
 		_inventory.add_item(pickup.getItem())
 		SignalHub.emit_add_item_to_player(_inventory)

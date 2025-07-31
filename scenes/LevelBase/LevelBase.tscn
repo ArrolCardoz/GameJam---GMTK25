@@ -27,7 +27,23 @@ position = Vector2(181, 96)
 item = ExtResource("5_6hn50")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
-position = Vector2(180, 81)
+position = Vector2(175, 45)
+item = ExtResource("6_efum6")
+
+[node name="Pickup3" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(274, 62)
+item = ExtResource("6_efum6")
+
+[node name="Pickup4" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(249, 135)
+item = ExtResource("6_efum6")
+
+[node name="Pickup5" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(158, 149)
+item = ExtResource("6_efum6")
+
+[node name="Pickup6" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(55, 144)
 item = ExtResource("6_efum6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -5,7 +5,6 @@ var _invSize=0
 
 func _init(size:int) -> void:
 	_invSize=size
-	_content.resize(_invSize)
 
 func add_item(item:Item)->void:
 	_content.append(item)
@@ -15,3 +14,6 @@ func remove_item(item:Item)->void:
 
 func get_items()->Array[Item]:
 	return _content
+
+func isFull()->bool:
+	return _invSize>_content.size()
