@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqxcinrlhh7ob"]
+
+[ext_resource type="Script" uid="uid://crn1wxyi7ux75" path="res://scenes/ItemHolder/ItemHolder.gd" id="1_l421i"]
+
+[node name="ItemHolder" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_l421i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="markers" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="markers"]
+
+[node name="Sprite2D" type="Sprite2D" parent="markers/Marker2D"]

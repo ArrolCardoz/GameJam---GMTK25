@@ -17,3 +17,6 @@ func get_items()->Array[Item]:
 
 func isFull()->bool:
 	return _invSize>_content.size()
+
+func isEmpty()->bool:
+	return _content.is_empty()

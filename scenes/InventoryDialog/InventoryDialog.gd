@@ -40,3 +40,9 @@ func highlight_slot(index: int) -> void:
 			slot.highlight(true)
 		else:
 			slot.highlight(false)
+
+func dropItem(inventory: Inventory)->Item:
+	var items: Array[Item] = inventory.get_items()
+	var returnItem=items[highlight]
+	inventory.remove_item(returnItem)
+	return items[highlight]

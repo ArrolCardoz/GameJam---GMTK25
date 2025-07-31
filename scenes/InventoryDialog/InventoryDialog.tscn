@@ -22,8 +22,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 45
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -38,7 +38,10 @@ mouse_filter = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_constants/separation = 15
+alignment = 1
 
 [node name="HUDIcon" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_uan6g")]
 layout_mode = 2

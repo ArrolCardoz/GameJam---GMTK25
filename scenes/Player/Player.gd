@@ -9,18 +9,23 @@ const INVENTORY_SIZE:int=5
 
 var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
 var _pickups_in_range:Array[Pickup]
+var _stations_in_range:Array[ItemHolder]
 
-
+func _enter_tree() -> void:
+	SignalHub.item_dropped.connect(update_hud)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("select") and _inventory.isFull() and _pickups_in_range.size()>0:
-		var pickup:Pickup=_pickups_in_range[0]
-
-		_inventory.add_item(pickup.getItem())
-		SignalHub.emit_add_item_to_player(_inventory)
-		pickup.die()
-
+	print( !_inventory.isEmpty() and _stations_in_range.size()>0)
+	if Input.is_action_just_pressed("select"):
+		if _inventory.isFull() and _pickups_in_range.size()>0:
+			var pickup:Pickup=_pickups_in_range[0]
+			_inventory.add_item(pickup.getItem())
+			SignalHub.emit_add_item_to_player(_inventory)
+			pickup.die()
+		elif !_inventory.isEmpty() and _stations_in_range.size()>0:
+			print("TEST")
+			SignalHub.emit_drop_item_from_player(_inventory)
 
 
 
@@ -41,12 +46,25 @@ func process_input()->Vector2:
 func update_debug_label()->void:
 	var s:String=""
 	s+=str(_pickups_in_range.size())
+	s+=str(_stations_in_range.size())
 	debug_label.text=s
 
+func update_hud(item:Item)->void:
+	_inventory.remove_item(item)
+	SignalHub.emit_add_item_to_player(_inventory)
 
-func on_item_picked_up(pickup:Pickup)->void:
-	print(pickup.item)
+
+
+
+func on_picked_up_in_range(pickup:Pickup)->void:
 	_pickups_in_range.append(pickup)
 
-func on_item_out_of_range(pickup:Pickup)->void:
+func on_picked_up_out_range(pickup:Pickup)->void:
 	_pickups_in_range.erase(pickup)
+
+
+func on_station_in_range(station:ItemHolder)->void:
+	_stations_in_range.append(station)
+
+func on_station_out_of_range(station:ItemHolder)->void:
+	_stations_in_range.erase(station)
