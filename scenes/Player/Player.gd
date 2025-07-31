@@ -16,16 +16,25 @@ func _enter_tree() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	print( !_inventory.isEmpty() and _stations_in_range.size()>0)
 	if Input.is_action_just_pressed("select"):
-		if _inventory.isFull() and _pickups_in_range.size()>0:
+		#pick item
+		if _inventory.isNotFull() and _pickups_in_range.size()>0:
 			var pickup:Pickup=_pickups_in_range[0]
 			_inventory.add_item(pickup.getItem())
 			SignalHub.emit_add_item_to_player(_inventory)
 			pickup.die()
+		#place item on station
 		elif !_inventory.isEmpty() and _stations_in_range.size()>0:
 			if !_stations_in_range[0]._isFull:
 				SignalHub.emit_drop_item_from_player(_inventory)
+			else:
+				var item:Item=_stations_in_range[0].getItem()
+				_inventory.add_item(item)
+				SignalHub.emit_drop_item_from_player(_inventory)
+
+		#pick item from station
+		elif _inventory.isNotFull() and _stations_in_range.size()>0:
+			pass
 
 
 

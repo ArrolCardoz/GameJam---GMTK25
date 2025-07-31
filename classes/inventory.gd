@@ -15,7 +15,7 @@ func remove_item(item:Item)->void:
 func get_items()->Array[Item]:
 	return _content
 
-func isFull()->bool:
+func isNotFull()->bool:
 	return _invSize>_content.size()
 
 func isEmpty()->bool:

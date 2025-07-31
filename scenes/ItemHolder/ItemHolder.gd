@@ -11,19 +11,26 @@ var _currentDir:Station.dir=station.dir.down
 var _isFull:bool=false
 var _item:Item
 
+func getItem()->Item:return _item
+func setItem(item:Item)->void:
+	_item=item
+
+
 func _ready() -> void:
 	updateStationSprite()
 
 func updateStationSprite()->void:
 	stationSprite.texture=station.texture[_currentDir]
 
+
+
 func place_item(item)->void:
-	if _isFull:return
 	_item=item
 	for marker in markers.get_children():
 		var sprite:Sprite2D = marker.get_node("Sprite2D")
 		if sprite==null:return
 		sprite.texture = _item.texture
+		_isFull=true
 		marker.show()
 
 

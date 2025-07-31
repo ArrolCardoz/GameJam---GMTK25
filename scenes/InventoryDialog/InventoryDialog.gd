@@ -47,7 +47,6 @@ func highlight_slot(index: int) -> void:
 
 func dropItem(inventory: Inventory)->void:
 	var items: Array[Item] = inventory.get_items()
-	print(highlight,items.size())
 	if highlight>=items.size():highlight=0
 	var returnItem=items[highlight]
 	inventory.remove_item(returnItem)

@@ -28,9 +28,9 @@ texture = ExtResource("2_ky53y")
 [node name="Camera" parent="." index="2" instance=ExtResource("4_ved6o")]
 zoom = Vector2(0.7, 0.7)
 
-[node name="PickupAction" parent="." index="4" instance=ExtResource("5_xcisb")]
+[node name="PickupAction" parent="." index="3" instance=ExtResource("5_xcisb")]
 
-[node name="DebugLabel" type="Label" parent="." index="5"]
+[node name="DebugLabel" type="Label" parent="." index="4"]
 offset_left = -15.0
 offset_top = -34.0
 offset_right = 261.0
