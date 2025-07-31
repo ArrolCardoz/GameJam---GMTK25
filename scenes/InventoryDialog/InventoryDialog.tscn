@@ -39,7 +39,6 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 15
-alignment = 1
 
 [node name="HUDIcon" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_uan6g")]
 layout_mode = 2

@@ -1,6 +1,11 @@
 class_name Inventory
 
-@export var _content:Array[Item]=[]
+@export var _content:Array[Item]
+var _invSize=0
+
+func _init(size:int) -> void:
+	_invSize=size
+	_content.resize(_invSize)
 
 func add_item(item:Item)->void:
 	_content.append(item)

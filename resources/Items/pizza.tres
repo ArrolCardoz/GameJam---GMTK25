@@ -9,4 +9,6 @@ script = ExtResource("1_rx2hk")
 name = "Pizza"
 scene = ExtResource("1_ux7ec")
 icon_frames = ExtResource("1_4yd1k")
+state = "default"
+transitions = {}
 metadata/_custom_type_script = "uid://wfrssyq221ic"

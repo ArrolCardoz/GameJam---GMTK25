@@ -2,10 +2,18 @@ extends Area2D
 class_name Pickup
 @export var item:Item
 
+
+
+func getItem()->Item:
+	return item
+func setItem(ITEM:Item)->void:
+	item=ITEM
+
+
 func _ready() -> void:
 	var obj=item.scene.instantiate()
+	print(obj)
 	call_deferred("add_child",obj)
-
 
 
 func die()->void:

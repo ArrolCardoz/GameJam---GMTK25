@@ -20,9 +20,9 @@ tile_set = ExtResource("2_e7jje")
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
-MOVE_SPEED = 250.0
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
+position = Vector2(181, 96)
 item = ExtResource("5_7hghd")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]

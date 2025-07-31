@@ -7,7 +7,7 @@ class_name Player
 
 const RAYCASE_LENGTH:float=50
 
-var _inventory:Inventory
+var _inventory:Inventory=Inventory.new(0)
 var _pickups_in_range:Array[Pickup]
 var _count:int=0
 
@@ -19,9 +19,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		var pickup:Pickup=_pickups_in_range[0]
 		print("I got a : ",pickup.item.name)
 		_count+=1
+		print(pickup.getItem())
 		print(pickup.item)
-		SignalHub.emit_add_item_to_player()
-		_inventory.add_item(pickup.item)
+
+		_inventory.add_item(pickup.getItem())
+		SignalHub.emit_add_item_to_player(_inventory)
 		pickup.die()
 
 
@@ -48,6 +50,7 @@ func update_debug_label()->void:
 
 
 func on_item_picked_up(pickup:Pickup)->void:
+	print(pickup.item)
 	_pickups_in_range.append(pickup)
 
 func on_item_out_of_range(pickup:Pickup)->void:
