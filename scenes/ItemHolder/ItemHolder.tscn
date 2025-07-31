@@ -11,8 +11,9 @@ script = ExtResource("1_l421i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="markers" type="Node" parent="."]
+[node name="markers" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="markers"]
 
 [node name="Sprite2D" type="Sprite2D" parent="markers/Marker2D"]
+scale = Vector2(0.75, 0.75)

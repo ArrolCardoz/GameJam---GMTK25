@@ -24,8 +24,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			SignalHub.emit_add_item_to_player(_inventory)
 			pickup.die()
 		elif !_inventory.isEmpty() and _stations_in_range.size()>0:
-			print("TEST")
-			SignalHub.emit_drop_item_from_player(_inventory)
+			if !_stations_in_range[0]._isFull:
+				SignalHub.emit_drop_item_from_player(_inventory)
+
 
 
 
@@ -50,6 +51,7 @@ func update_debug_label()->void:
 	debug_label.text=s
 
 func update_hud(item:Item)->void:
+	_stations_in_range[0].place_item(item)
 	SignalHub.emit_add_item_to_player(_inventory)
 
 

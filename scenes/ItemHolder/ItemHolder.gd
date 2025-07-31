@@ -4,7 +4,7 @@ class_name ItemHolder
 @export var station:Station
 @export var _maxItems:int=0
 
-@onready var markers: Node = $markers
+@onready var markers: Node2D = $markers
 @onready var stationSprite: Sprite2D = $Sprite2D
 
 var _currentDir:Station.dir=station.dir.down
@@ -20,11 +20,11 @@ func updateStationSprite()->void:
 func place_item(item)->void:
 	if _isFull:return
 	_item=item
-	for childern in markers.get_children():
-		var sprite:Marker2D=childern.get_child(0)
-		if sprite.texture==null:continue
-		sprite.texture=_item.texture
-
+	for marker in markers.get_children():
+		var sprite:Sprite2D = marker.get_node("Sprite2D")
+		if sprite==null:return
+		sprite.texture = _item.texture
+		marker.show()
 
 
 func _on_area_entered(area: Area2D) -> void:
