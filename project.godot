@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://globals/GameManager.gd"
 SignalHub="*res://globals/SignalHub.gd"
 Tablemanager="*res://globals/TableManager.gd"
+FoodManager="*res://globals/FoodManager.gd"
 
 [display]
 

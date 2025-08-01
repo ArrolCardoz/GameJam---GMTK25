@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ecxqpm8u4p8g"]
+[gd_scene load_steps=8 format=3 uid="uid://ecxqpm8u4p8g"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_k34f2"]
 [ext_resource type="Script" uid="uid://1cwe6g850v8h" path="res://scenes/BaseNPC/BaseNPC.gd" id="2_auv6d"]
 [ext_resource type="Texture2D" uid="uid://bgddvgvwxouk2" path="res://assets/player/player-single.png" id="2_d0na0"]
+[ext_resource type="Texture2D" uid="uid://da80x2tg2twyu" path="res://assets/thinking white cloud.png" id="4_auv6d"]
+[ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="5_n0381"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0na0"]
 radius = 8.0
@@ -36,9 +38,27 @@ label_settings = SubResource("LabelSettings_d0na0")
 
 [node name="ThinkingTimer" type="Timer" parent="." index="4"]
 wait_time = 3.0
+one_shot = true
 
 [node name="FoodTimer" type="Timer" parent="." index="5"]
 wait_time = 20.0
+one_shot = true
+
+[node name="EatingTimer" type="Timer" parent="." index="6"]
+one_shot = true
+
+[node name="thinkingCloud" type="Sprite2D" parent="." index="7"]
+visible = false
+position = Vector2(-20, -21)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_auv6d")
+
+[node name="FoodIcon" type="Sprite2D" parent="." index="8"]
+visible = false
+position = Vector2(-22, -25)
+scale = Vector2(0.815, 0.815)
+texture = ExtResource("5_n0381")
 
 [connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
+[connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]

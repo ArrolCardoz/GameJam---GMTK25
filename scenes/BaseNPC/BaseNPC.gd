@@ -6,11 +6,15 @@ class_name BaseNPC
 @export var SPEED:float=100
 @onready var thinking_timer: Timer = $ThinkingTimer
 @onready var food_timer: Timer = $FoodTimer
+@onready var eating_timer: Timer = $EatingTimer
+@onready var thinking_cloud: Sprite2D = $thinkingCloud
+@onready var food_icon: Sprite2D = $FoodIcon
 
 enum STATES {WaitingForTable,Thinking,WaitingForFood,Eating,Leaving}
 
 var _current_table:Table
 var _state:STATES=STATES.WaitingForTable
+var _food:Item
 
 func _ready() -> void:
 	_current_table=Tablemanager.get_free_table()
@@ -40,10 +44,20 @@ func processThinking()->void:
 		thinking_timer.start()
 
 func processWaitingForFood()->void:
-	food_timer.start()
+	if food_timer.is_stopped():
+		food_timer.start()
+		_food=FoodManager.get_random_food()
+		thinking_cloud.show()
+		food_icon.show()
+		food_icon.texture=_food.texture
+	if _food==_current_table._item:
+		_state=STATES.Eating
+		thinking_cloud.hide()
+		food_icon.hide()
 
 func processEating()->void:
-	pass
+	if eating_timer.is_stopped():
+		eating_timer.start()
 
 func processLeaving()->void:
 	pass
@@ -114,3 +128,7 @@ func _on_thinking_timer_timeout() -> void:
 
 func _on_food_timer_timeout() -> void:
 	GameManager.gameOver()
+
+
+func _on_eating_timer_timeout() -> void:
+	_state=STATES.Leaving
