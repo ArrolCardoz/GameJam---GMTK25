@@ -1,12 +1,10 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b7ubv37ljqu0"]
 
 [ext_resource type="Script" uid="uid://wfrssyq221ic" path="res://classes/Items.gd" id="1_d1c1e"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d1c1e"]
-load_path = "res://.godot/imported/cheeseAndSausedDough.png-fab9214a6b6dd965157fb0396f8b400f.ctex"
+[ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="2_nfoor"]
 
 [resource]
 script = ExtResource("1_d1c1e")
 name = "cheeseAndSausedDough"
-texture = SubResource("CompressedTexture2D_d1c1e")
+texture = ExtResource("2_nfoor")
 metadata/_custom_type_script = "uid://wfrssyq221ic"

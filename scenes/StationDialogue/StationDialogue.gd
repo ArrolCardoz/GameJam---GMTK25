@@ -3,12 +3,17 @@ class_name StationDialogue
 
 @onready var pizza_station: TextureRect = $PizzaStation
 @onready var item_texture: TextureRect = $itemTexture
+@onready var recipie_manager: Node = $RecipieManager
+@onready var pizza_timer: Timer = $PizzaStation/PizzaTimer
+
 
 var _usingStation:bool=false
-var _currentStation:TextureRect
+var _currentDiaogue:TextureRect
 var _currentItem:Item
 var _player_ref:Player
 var _player_inventory:Array[Item]
+var _currentStation:Station
+var _just_opened :bool= false
 
 func setCurrentItem(i:Item)->void:
 	_currentItem=i
@@ -21,12 +26,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed("ese"):
 			hide()
 			_usingStation=false
-			_currentStation.hide()
+			_currentDiaogue.hide()
 			_player_ref.placeItemInStationFromStationDialogue(_currentItem)
 			_player_ref._inventory.replace_inventory(_player_inventory)
 			_player_ref._can_input=true
 			SignalHub.emit_updateHUD(_player_ref._inventory)
-			mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 		elif Input.is_action_just_pressed("1"):
 			swap_array_and_var(_player_inventory, 0)
@@ -38,6 +42,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			swap_array_and_var(_player_inventory, 3)
 		elif Input.is_action_just_pressed("5"):
 			swap_array_and_var(_player_inventory, 4)
+		elif Input.is_action_just_pressed("use") and not _just_opened:
+			useStation()
 
 
 
@@ -50,16 +56,18 @@ func _ready() -> void:
 func openStation(station:Station,item:Item)->void:
 	_player_ref._can_input=false
 	show()
-	mouse_filter=Control.MOUSE_FILTER_STOP
 	_player_inventory=_player_ref._inventory.get_items()
-
+	_currentStation=station
+	_just_opened = true # prevent immediate input
 	setCurrentItem(item)
 	_usingStation=true
 	match station.name:
 		Oven.STATION_NAME:
-			_currentStation=pizza_station
+			_currentDiaogue=pizza_station
 			pizza_station.show()
 			SignalHub.emit_get_highlight_item(_player_ref._inventory)
+			await get_tree().create_timer(0.1).timeout
+			_just_opened = false
 
 func swap_array_and_var(arr: Array, index: int) -> void:
 	if index >= arr.size():
@@ -71,3 +79,8 @@ func swap_array_and_var(arr: Array, index: int) -> void:
 	setCurrentItem(temp)
 
 	SignalHub.emit_updateHUDthoughArray(arr)
+
+func useStation()->void:
+	var item:Item=recipie_manager.get_result_for(_currentItem,_currentStation)
+	match _currentStation.name:
+		Oven.STATION_NAME:

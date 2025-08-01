@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4x6tw7pl53db"]
+[gd_scene load_steps=8 format=3 uid="uid://b4x6tw7pl53db"]
 
 [ext_resource type="Script" uid="uid://eysmygo07vei" path="res://scenes/StationDialogue/StationDialogue.gd" id="1_wqfj2"]
 [ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="2_46u5g"]
+[ext_resource type="PackedScene" uid="uid://ddrp3kwifsxfi" path="res://scenes/RecipieManager/RecipieManager.tscn" id="3_jpvnf"]
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="4_fmhuv"]
+[ext_resource type="Script" uid="uid://cb7ehmwxx6vjb" path="res://classes/Recipies.gd" id="5_qgx2v"]
+[ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="6_8pnps"]
+[ext_resource type="Resource" uid="uid://cjs1ot2bpvpdh" path="res://resources/Stations/ovenRecipies.tres" id="7_j1ueq"]
 
 [node name="StationDialogue" type="PanelContainer"]
 visible = false
@@ -17,6 +22,18 @@ script = ExtResource("1_wqfj2")
 layout_mode = 2
 texture = ExtResource("2_46u5g")
 
+[node name="PizzaTimer" type="Timer" parent="PizzaStation"]
+
+[node name="Label" type="Label" parent="PizzaStation"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="itemTexture" type="TextureRect" parent="."]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="RecipieManager" parent="." instance=ExtResource("3_jpvnf")]
+stationRecipies = Dictionary[ExtResource("4_fmhuv"), ExtResource("5_qgx2v")]({
+ExtResource("6_8pnps"): ExtResource("7_j1ueq")
+})

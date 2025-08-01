@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationRecipies" load_steps=6 format=3 uid="uid://cjs1ot2bpvpdh"]
+
+[ext_resource type="Script" uid="uid://cnepi5srblrbq" path="res://classes/Recipe.gd" id="1_xn7og"]
+[ext_resource type="Script" uid="uid://cb7ehmwxx6vjb" path="res://classes/Recipies.gd" id="2_4lo5j"]
+[ext_resource type="Resource" uid="uid://c0it38dlt2d73" path="res://resources/recipies/pepproniPizza.tres" id="2_gfkc7"]
+[ext_resource type="Resource" uid="uid://cghomutv6vgsg" path="res://resources/recipies/cheesePizza.tres" id="3_2rd45"]
+[ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="5_cerj2"]
+
+[resource]
+script = ExtResource("2_4lo5j")
+station = ExtResource("5_cerj2")
+recipies = Array[ExtResource("1_xn7og")]([ExtResource("3_2rd45"), ExtResource("2_gfkc7")])
+metadata/_custom_type_script = "uid://cb7ehmwxx6vjb"

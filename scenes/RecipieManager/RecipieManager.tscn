@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrp3kwifsxfi"]
+
+[ext_resource type="Script" uid="uid://o3nujviq7v6k" path="res://scenes/RecipieManager/RecipieManager.gd" id="1_pjsxl"]
+
+[node name="RecipieManager" type="Node"]
+script = ExtResource("1_pjsxl")

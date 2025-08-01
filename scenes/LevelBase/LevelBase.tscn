@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
 [ext_resource type="Resource" uid="uid://brw6dpv2tptrn" path="res://resources/Items/cheesePizzaSliced.tres" id="7_ois7l"]
 [ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
+[ext_resource type="Resource" uid="uid://b7ubv37ljqu0" path="res://resources/Items/cheeseAndSauseDough.tres" id="9_c3lg8"]
 [ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_c3lg8"]
 [ext_resource type="PackedScene" uid="uid://b4x6tw7pl53db" path="res://scenes/StationDialogue/StationDialogue.tscn" id="11_c3lg8"]
-[ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 [ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="13_ymbih"]
 
 [node name="LevelBase" type="Node2D"]
@@ -49,7 +49,7 @@ item = ExtResource("10_c3lg8")
 
 [node name="Pickup6" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(55, 144)
-item = ExtResource("11_uw25i")
+item = ExtResource("9_c3lg8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -84,4 +84,3 @@ position = Vector2(116, 60)
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
-MOVE_SPEED = 250.0
