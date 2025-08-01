@@ -40,6 +40,10 @@ func remove_item()->void:
 		_isFull=false
 		marker.hide()
 
+func startStation(item:Item)->void:
+	#pure virtual function
+	pass
+
 
 func _on_area_entered(area: Area2D) -> void:
 	print(area)

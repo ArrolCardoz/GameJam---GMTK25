@@ -14,6 +14,7 @@ var _player_ref:Player
 var _player_inventory:Array[Item]
 var _currentStation:Station
 var _just_opened :bool= false
+var _cookingItem:Item
 
 func setCurrentItem(i:Item)->void:
 	_currentItem=i
@@ -82,5 +83,15 @@ func swap_array_and_var(arr: Array, index: int) -> void:
 
 func useStation()->void:
 	var item:Item=recipie_manager.get_result_for(_currentItem,_currentStation)
+	_cookingItem=item
+	if _cookingItem==null:
+		return
 	match _currentStation.name:
 		Oven.STATION_NAME:
+			_player_ref._stations_in_range[0].startStation(_cookingItem)
+			setCurrentItem(null)
+			pizza_timer.start()
+
+
+func _on_pizza_timer_timeout() -> void:
+	setCurrentItem(_cookingItem)

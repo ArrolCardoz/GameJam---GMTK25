@@ -23,6 +23,7 @@ layout_mode = 2
 texture = ExtResource("2_46u5g")
 
 [node name="PizzaTimer" type="Timer" parent="PizzaStation"]
+one_shot = true
 
 [node name="Label" type="Label" parent="PizzaStation"]
 layout_mode = 0
@@ -37,3 +38,5 @@ mouse_filter = 2
 stationRecipies = Dictionary[ExtResource("4_fmhuv"), ExtResource("5_qgx2v")]({
 ExtResource("6_8pnps"): ExtResource("7_j1ueq")
 })
+
+[connection signal="timeout" from="PizzaStation/PizzaTimer" to="." method="_on_pizza_timer_timeout"]

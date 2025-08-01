@@ -9,7 +9,7 @@ const STATION_NAME:String="Oven"
 func useStation()->void:
 	SignalHub.emit_open_station(station,_item)
 
-func startOven(item:Item)->void:
+func startStation(item:Item)->void:
 	_cookingItem=item
 	timer.start()
 

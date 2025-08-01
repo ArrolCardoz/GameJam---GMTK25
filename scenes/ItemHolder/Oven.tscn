@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://duxspfbvc8p2t"]
+[gd_scene load_steps=7 format=3 uid="uid://duxspfbvc8p2t"]
 
 [ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_b722u"]
 [ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="2_osr54"]
 [ext_resource type="Script" uid="uid://d2k2shk1iy8ri" path="res://scenes/ItemHolder/Oven.gd" id="2_y7t2s"]
 [ext_resource type="SpriteFrames" uid="uid://c7xu0jsecxj1r" path="res://resources/Stations/OvenAnimation.tres" id="3_y7t2s"]
+[ext_resource type="AudioStream" uid="uid://dgc2hbeaqfpff" path="res://assets/Sound/611113__5ro4__bell-ding-1.wav" id="5_d4em2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t2s"]
 
@@ -24,7 +25,9 @@ shape = SubResource("RectangleShape2D_y7t2s")
 sprite_frames = ExtResource("3_y7t2s")
 
 [node name="Timer" type="Timer" parent="." index="4"]
+one_shot = true
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("5_d4em2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
