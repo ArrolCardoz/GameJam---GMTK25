@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Station" load_steps=3 format=3 uid="uid://dthm3fxj2rgu1"]
+
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="1_gr0xt"]
+[ext_resource type="Texture2D" uid="uid://34kvheiqwi1" path="res://assets/station/Table/Table.png" id="2_4hywa"]
+
+[resource]
+script = ExtResource("1_gr0xt")
+name = "Table"
+texture = Dictionary[int, Texture2D]({
+0: ExtResource("2_4hywa"),
+1: ExtResource("2_4hywa"),
+2: ExtResource("2_4hywa"),
+3: ExtResource("2_4hywa")
+})
+maxItems = 1
+metadata/_custom_type_script = "uid://bmr2uufrtmuqt"

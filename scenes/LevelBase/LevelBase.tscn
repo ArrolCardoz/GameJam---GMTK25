@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=16 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
-[ext_resource type="PackedScene" uid="uid://jrbghg2eicih" path="res://scenes/ItemHolder/Cabinet.tscn" id="3_efum6"]
 [ext_resource type="PackedScene" uid="uid://dlgsl82y3henb" path="res://scenes/Player/Player.tscn" id="3_ny4ya"]
 [ext_resource type="PackedScene" uid="uid://bjbf6od1ctt8f" path="res://scenes/Pickup/Pickup.tscn" id="4_u8cij"]
 [ext_resource type="Resource" uid="uid://4ja66pues0mk" path="res://resources/Items/pepproniDough.tres" id="5_6hn50"]
@@ -13,7 +12,13 @@
 [ext_resource type="Resource" uid="uid://b7ubv37ljqu0" path="res://resources/Items/cheeseAndSauseDough.tres" id="9_c3lg8"]
 [ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_c3lg8"]
 [ext_resource type="PackedScene" uid="uid://b4x6tw7pl53db" path="res://scenes/StationDialogue/StationDialogue.tscn" id="11_c3lg8"]
-[ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="13_ymbih"]
+[ext_resource type="PackedScene" uid="uid://0wu7usorqxiw" path="res://scenes/ItemHolder/Table.tscn" id="13_ymbih"]
+[ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="14_c3lg8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c3lg8"]
+vertices = PackedVector2Array(315.898, 170.063, 10.0938, 171.93, 11.9063, -21, 314.094, -21)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -31, 324, -31, 326, 180, 0, 182)])
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_nrmop")
@@ -64,23 +69,14 @@ anchor_bottom = 0.5
 
 [node name="StationDialogue" parent="CanvasLayer" instance=ExtResource("11_c3lg8")]
 
-[node name="Cabinet" parent="." instance=ExtResource("3_efum6")]
-position = Vector2(52, 60)
-scale = Vector2(2, 2)
-collision_layer = 1
-
-[node name="Cabinet2" parent="." instance=ExtResource("3_efum6")]
-position = Vector2(228, 63)
-scale = Vector2(2, 2)
-collision_layer = 1
-
-[node name="Cabinet3" parent="." instance=ExtResource("3_efum6")]
-position = Vector2(20, 60)
-scale = Vector2(2, 2)
-collision_layer = 1
-
-[node name="Oven" parent="." instance=ExtResource("13_ymbih")]
-position = Vector2(116, 60)
-
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
+
+[node name="Table" parent="." instance=ExtResource("13_ymbih")]
+position = Vector2(295, 101)
+
+[node name="BaseNPC" parent="." instance=ExtResource("14_c3lg8")]
+position = Vector2(27, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_c3lg8")

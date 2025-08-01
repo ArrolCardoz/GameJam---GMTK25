@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ecxqpm8u4p8g"]
+
+[ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_k34f2"]
+[ext_resource type="Script" uid="uid://1cwe6g850v8h" path="res://scenes/BaseNPC/BaseNPC.gd" id="2_auv6d"]
+[ext_resource type="Texture2D" uid="uid://bgddvgvwxouk2" path="res://assets/player/player-single.png" id="2_d0na0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0na0"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0na0"]
+font_size = 64
+
+[node name="BaseNPC" instance=ExtResource("1_k34f2")]
+script = ExtResource("2_auv6d")
+SPEED = 100.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CapsuleShape2D_d0na0")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0.07, 0.163, 1, 1)
+texture = ExtResource("2_d0na0")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="2"]
+debug_enabled = true
+
+[node name="debug_label" type="Label" parent="." index="3"]
+offset_left = -28.0
+offset_top = -63.0
+offset_right = 118.0
+offset_bottom = 25.0
+scale = Vector2(0.24, 0.24)
+text = "0000"
+label_settings = SubResource("LabelSettings_d0na0")
+
+[node name="ThinkingTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+
+[node name="FoodTimer" type="Timer" parent="." index="5"]
+wait_time = 20.0
+
+[connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
