@@ -27,15 +27,20 @@ func _enter_tree() -> void:
 	SignalHub.updateHUDthoughArray.connect(updateThroughArray)
 
 func update(inventory: Inventory) -> void:
-	counter=0
 	var items: Array[Item] = inventory.get_items()
-	for children in h_box_container.get_children():
-		children.clearDisplay()
-		if counter >= items.size(): break
-		if children.getIsEmpty():
-			children.display(items[counter])
-			children.setCountLabel(str(counter + 1))
-			counter += 1
+	var children = h_box_container.get_children()
+
+	for i in children.size():
+		var slot = children[i]
+		slot.clearDisplay()
+
+		if i < items.size():
+			var item = items[i]
+			if item != null:
+				slot.display(item)
+				slot.setCountLabel(str(i + 1))
+
+
 
 func updateThroughArray(arr: Array[Item]) -> void:
 	counter=0
@@ -64,7 +69,17 @@ func dropItem(inventory: Inventory)->void:
 	var items: Array[Item] = inventory.get_items()
 	if highlight>=items.size():highlight=0
 	var returnItem=items[highlight]
-	inventory.remove_item(returnItem)
+	if returnItem==null:
+		var idx:int=0
+		for i in items:
+			if i==null:
+				idx+=1
+				continue
+			else:
+				highlight=idx
+				returnItem=i
+
+	inventory.remove_item(highlight)
 	SignalHub.emit_item_dropped(returnItem)
 
 func getHighlightItem(inventory:Inventory)->void:

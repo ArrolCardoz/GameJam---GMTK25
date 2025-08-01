@@ -12,9 +12,11 @@ var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
 var _pickups_in_range:Array[Pickup]
 var _stations_in_range:Array[ItemHolder]
 var _can_input:bool=true
+var _highlightItem:int=0
 
 func _enter_tree() -> void:
 	SignalHub.item_dropped.connect(update_hud)
+	SignalHub.current_highlight_item.connect(current_highlight_item)
 	add_to_group(GROUP_NAME)
 
 
@@ -64,7 +66,8 @@ func update_debug_label()->void:
 
 func pickUpItem()->void:
 	var pickup:Pickup=_pickups_in_range[0]
-	_inventory.add_item(pickup.getItem())
+	SignalHub.emit_get_highlight_item(_inventory)
+	_inventory.add_item(pickup.getItem(),_highlightItem)
 	SignalHub.emit_updateHUD(_inventory)
 	pickup.die()
 
@@ -79,7 +82,8 @@ func pickItemInStation()->void:
 	if _stations_in_range[0]._isFull:
 		var item:Item=_stations_in_range[0].getItem()
 		_stations_in_range[0].remove_item()
-		_inventory.add_item(item)
+		SignalHub.emit_get_highlight_item(_inventory)
+		_inventory.add_item(item,_highlightItem)
 		SignalHub.emit_updateHUD(_inventory)
 
 func swapItemInStation()->void:
@@ -91,6 +95,9 @@ func swapItemInStation()->void:
 func update_hud(item:Item)->void:
 	_stations_in_range[0].place_item(item)
 	SignalHub.emit_updateHUD(_inventory)
+
+func current_highlight_item(i:int)->void:
+	_highlightItem=i
 
 
 

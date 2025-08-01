@@ -15,6 +15,7 @@ func highlight(state:bool)->void:
 	else: add_theme_stylebox_override("panel",HUD_BG)
 
 func display(item: Item):
+	if item==null:return
 	texture_rect.show()
 	texture_rect.texture = item.texture
 	_is_empty = false
