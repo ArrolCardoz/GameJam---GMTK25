@@ -21,9 +21,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _enter_tree() -> void:
-	SignalHub.add_item_to_player.connect(update)
+	SignalHub.updateHUD.connect(update)
 	SignalHub.drop_item_from_player.connect(dropItem)
 	SignalHub.get_highlight_item.connect(getHighlightItem)
+	SignalHub.updateHUDthoughArray.connect(updateThroughArray)
 
 func update(inventory: Inventory) -> void:
 	counter=0
@@ -35,6 +36,17 @@ func update(inventory: Inventory) -> void:
 			children.display(items[counter])
 			children.setCountLabel(str(counter + 1))
 			counter += 1
+
+func updateThroughArray(arr: Array[Item]) -> void:
+	counter=0
+	for children in h_box_container.get_children():
+		children.clearDisplay()
+		if counter >= arr.size(): break
+		if children.getIsEmpty():
+			children.display(arr[counter])
+			children.setCountLabel(str(counter + 1))
+			counter += 1
+
 
 func highlight_slot(index: int) -> void:
 	highlight=index

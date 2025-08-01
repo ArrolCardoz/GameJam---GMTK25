@@ -11,6 +11,7 @@ const GROUP_NAME: String = "Player"
 var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
 var _pickups_in_range:Array[Pickup]
 var _stations_in_range:Array[ItemHolder]
+var _can_input:bool=true
 
 func _enter_tree() -> void:
 	SignalHub.item_dropped.connect(update_hud)
@@ -18,36 +19,38 @@ func _enter_tree() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pick"):
-		#pick item
-		if _inventory.isNotFull() and _pickups_in_range.size()>0:
-			pickUpItem()
-		#pick item from station
-		elif _inventory.isNotFull() and _stations_in_range.size()>0:
-			pickItemInStation()
+	if _can_input:
+		if Input.is_action_just_pressed("pick"):
+			#pick item
+			if _inventory.isNotFull() and _pickups_in_range.size()>0:
+				pickUpItem()
+			#pick item from station
+			elif _inventory.isNotFull() and _stations_in_range.size()>0:
+				pickItemInStation()
 
 
-	elif Input.is_action_just_pressed("drop"):
-		#place item on station
-		if !_inventory.isEmpty() and _stations_in_range.size()>0:
-			if !_stations_in_range[0]._isFull:
-				placeItemInStation()
-			else:
-				swapItemInStation()
+		elif Input.is_action_just_pressed("drop"):
+			#place item on station
+			if !_inventory.isEmpty() and _stations_in_range.size()>0:
+				if !_stations_in_range[0]._isFull:
+					placeItemInStation()
+				else:
+					swapItemInStation()
 
 
-	elif Input.is_action_just_pressed("use"):
-		if _stations_in_range.size()>0:
-			if _stations_in_range[0].has_method("useStation"):
-				_stations_in_range[0].useStation()
+		elif Input.is_action_just_pressed("use"):
+			if _stations_in_range.size()>0:
+				if _stations_in_range[0].has_method("useStation"):
+					_stations_in_range[0].useStation()
 
 
 func _physics_process(_delta: float) -> void:
-	update_debug_label()
-	var moveVec:Vector2=process_input()
-	pickup_action.set_new_dir(moveVec)
-	velocity=moveVec*MOVE_SPEED
-	move_and_slide()
+	if _can_input:
+		update_debug_label()
+		var moveVec:Vector2=process_input()
+		pickup_action.set_new_dir(moveVec)
+		velocity=moveVec*MOVE_SPEED
+		move_and_slide()
 
 func process_input()->Vector2:
 	var move:Vector2
@@ -62,7 +65,7 @@ func update_debug_label()->void:
 func pickUpItem()->void:
 	var pickup:Pickup=_pickups_in_range[0]
 	_inventory.add_item(pickup.getItem())
-	SignalHub.emit_add_item_to_player(_inventory)
+	SignalHub.emit_updateHUD(_inventory)
 	pickup.die()
 
 func placeItemInStation()->void:
@@ -77,7 +80,7 @@ func pickItemInStation()->void:
 		var item:Item=_stations_in_range[0].getItem()
 		_stations_in_range[0].remove_item()
 		_inventory.add_item(item)
-		SignalHub.emit_add_item_to_player(_inventory)
+		SignalHub.emit_updateHUD(_inventory)
 
 func swapItemInStation()->void:
 	if _stations_in_range[0]._isFull:
@@ -87,7 +90,7 @@ func swapItemInStation()->void:
 
 func update_hud(item:Item)->void:
 	_stations_in_range[0].place_item(item)
-	SignalHub.emit_add_item_to_player(_inventory)
+	SignalHub.emit_updateHUD(_inventory)
 
 
 

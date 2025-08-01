@@ -1,9 +1,13 @@
 extends Node
 
 
-signal add_item_to_player(inventory:Inventory)
-func emit_add_item_to_player(inventory:Inventory)->void:
-	add_item_to_player.emit(inventory)
+signal updateHUD(inventory:Inventory)
+func emit_updateHUD(inventory:Inventory)->void:
+	updateHUD.emit(inventory)
+
+signal updateHUDthoughArray(arr:Array[Item])
+func emit_updateHUDthoughArray(arr:Array[Item])->void:
+	updateHUDthoughArray.emit(arr)
 
 signal drop_item_from_player(inventory:Inventory)
 func emit_drop_item_from_player(inventory:Inventory)->void:

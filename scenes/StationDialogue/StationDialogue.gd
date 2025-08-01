@@ -22,6 +22,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_currentStation.hide()
 		_player_ref.placeItemInStationFromStationDialogue(_currentItem)
 		mouse_filter=Control.MOUSE_FILTER_IGNORE
+		_player_ref._inventory.replace_inventory(_player_inventory)
+		_player_ref._can_input=true
+		SignalHub.emit_updateHUD(_player_ref._inventory)
 	elif Input.is_action_just_pressed("1"):
 		swap_array_and_var(_player_inventory, 0)
 	elif Input.is_action_just_pressed("2"):
@@ -42,9 +45,11 @@ func _ready() -> void:
 	_player_ref=get_tree().get_first_node_in_group(Player.GROUP_NAME)
 
 func openStation(station:Station,item:Item)->void:
+	_player_ref._can_input=false
 	show()
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	_player_inventory=_player_ref._inventory.get_items()
+
 	setCurrentItem(item)
 	_usingStation=true
 	match station.name:
@@ -54,7 +59,16 @@ func openStation(station:Station,item:Item)->void:
 			SignalHub.emit_get_highlight_item(_player_ref._inventory)
 
 func swap_array_and_var(arr: Array, index: int) -> void:
-	var temp = arr[index]
-	if index>arr.size():
+	var temp
+	if index<arr.size():
+		temp = arr[index]
+		arr.erase(temp)
+
+	if _currentItem!=null:
 		arr.append(_currentItem)
-	setCurrentItem(temp)
+
+	if temp!=null:
+		setCurrentItem(temp)
+	else:
+		item_texture.texture = null
+	SignalHub.emit_updateHUDthoughArray(arr)

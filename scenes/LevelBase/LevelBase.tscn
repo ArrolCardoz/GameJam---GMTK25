@@ -55,6 +55,7 @@ item = ExtResource("11_uw25i")
 process_mode = 3
 
 [node name="InventoryDialog" parent="CanvasLayer" instance=ExtResource("7_6hn50")]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

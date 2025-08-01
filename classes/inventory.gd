@@ -6,6 +6,9 @@ var _invSize=0
 func _init(size:int) -> void:
 	_invSize=size
 
+func replace_inventory(arr:Array[Item])->void:
+	_content=arr
+
 func add_item(item:Item)->void:
 	_content.append(item)
 
