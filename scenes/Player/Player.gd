@@ -6,6 +6,7 @@ class_name Player
 @onready var debug_label: Label = $DebugLabel
 
 const INVENTORY_SIZE:int=5
+const GROUP_NAME: String = "Player"
 
 var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
 var _pickups_in_range:Array[Pickup]
@@ -13,6 +14,7 @@ var _stations_in_range:Array[ItemHolder]
 
 func _enter_tree() -> void:
 	SignalHub.item_dropped.connect(update_hud)
+	add_to_group(GROUP_NAME)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -33,6 +35,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				swapItemInStation()
 
+
+	elif Input.is_action_just_pressed("use"):
+		if _stations_in_range.size()>0:
+			if _stations_in_range[0].has_method("useStation"):
+				_stations_in_range[0].useStation()
 
 
 func _physics_process(_delta: float) -> void:
@@ -60,6 +67,10 @@ func pickUpItem()->void:
 
 func placeItemInStation()->void:
 	SignalHub.emit_drop_item_from_player(_inventory)
+
+
+func placeItemInStationFromStationDialogue(item:Item)->void:
+	_stations_in_range[0].setItem(item)
 
 func pickItemInStation()->void:
 	if _stations_in_range[0]._isFull:

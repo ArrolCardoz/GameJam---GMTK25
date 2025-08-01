@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Station" load_steps=3 format=3 uid="uid://67ch0gv1hr38"]
 
-[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://globals/Station.gd" id="1_gbwn5"]
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="1_axc01"]
 [ext_resource type="Texture2D" uid="uid://iopshijqyegt" path="res://assets/Item/pizza/dough.png" id="2_axc01"]
 
 [resource]
-script = ExtResource("1_gbwn5")
+script = ExtResource("1_axc01")
+name = "Oven"
 texture = Dictionary[int, Texture2D]({
 0: ExtResource("2_axc01"),
 1: ExtResource("2_axc01"),

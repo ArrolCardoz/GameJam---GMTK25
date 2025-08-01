@@ -23,7 +23,6 @@ func updateStationSprite()->void:
 	stationSprite.texture=station.texture[_currentDir]
 
 
-
 func place_item(item)->void:
 	_item=item
 	for marker in markers.get_children():

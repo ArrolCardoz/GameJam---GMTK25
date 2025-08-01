@@ -12,3 +12,15 @@ func emit_drop_item_from_player(inventory:Inventory)->void:
 signal item_dropped(item:Item)
 func emit_item_dropped(item:Item)->void:
 	item_dropped.emit(item)
+
+signal open_station(station:Station,item:Item)
+func emit_open_station(station:Station,item:Item)->void:
+	open_station.emit(station,item)
+
+signal get_highlight_item(inventory:Inventory)
+func emit_get_highlight_item(inventory:Inventory)->void:
+	get_highlight_item.emit(inventory)
+
+signal current_highlight_item(i:int)
+func emit_current_highlight_item(i:int)->void:
+	current_highlight_item.emit(i)

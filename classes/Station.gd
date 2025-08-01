@@ -2,6 +2,7 @@ extends Resource
 class_name Station
 enum dir{left,up,right,down}
 
+@export var name:String
 @export var texture:Dictionary[dir,Texture2D]
 @export var maxItems:int=0
 

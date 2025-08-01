@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4x6tw7pl53db"]
+
+[ext_resource type="Script" uid="uid://eysmygo07vei" path="res://scenes/StationDialogue/StationDialogue.gd" id="1_wqfj2"]
+[ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="2_46u5g"]
+
+[node name="StationDialogue" type="PanelContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wqfj2")
+
+[node name="PizzaStation" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_46u5g")
+
+[node name="itemTexture" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2

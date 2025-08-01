@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=15 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://brw6dpv2tptrn" path="res://resources/Items/cheesePizzaSliced.tres" id="7_ois7l"]
 [ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
 [ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_c3lg8"]
+[ext_resource type="PackedScene" uid="uid://b4x6tw7pl53db" path="res://scenes/StationDialogue/StationDialogue.tscn" id="11_c3lg8"]
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 [ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="13_ymbih"]
 
@@ -25,9 +26,6 @@ tile_set = ExtResource("2_e7jje")
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAABAAAAAAABAAwAAAACAAAAAAABAAwAAAADAAAAAAABAAwAAAAEAAAAAAABAAwAAAAFAAAAAAALAAwAAAAFAAEAAAALAA0AAAAFAAIAAAALAA0AAAAFAAMAAAALAA4AAAA=")
 tile_set = ExtResource("2_e7jje")
-
-[node name="Player" parent="." instance=ExtResource("3_ny4ya")]
-position = Vector2(98, 78)
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(39, 100)
@@ -63,24 +61,25 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
+[node name="StationDialogue" parent="CanvasLayer" instance=ExtResource("11_c3lg8")]
+
 [node name="Cabinet" parent="." instance=ExtResource("3_efum6")]
 position = Vector2(52, 60)
 scale = Vector2(2, 2)
 collision_layer = 1
-collision_mask = 1
 
 [node name="Cabinet2" parent="." instance=ExtResource("3_efum6")]
 position = Vector2(228, 63)
 scale = Vector2(2, 2)
 collision_layer = 1
-collision_mask = 1
 
 [node name="Cabinet3" parent="." instance=ExtResource("3_efum6")]
 position = Vector2(20, 60)
 scale = Vector2(2, 2)
 collision_layer = 1
-collision_mask = 1
 
 [node name="Oven" parent="." instance=ExtResource("13_ymbih")]
 position = Vector2(116, 60)
-collision_layer = 16
+
+[node name="Player" parent="." instance=ExtResource("3_ny4ya")]
+position = Vector2(98, 78)

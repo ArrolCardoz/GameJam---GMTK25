@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _enter_tree() -> void:
 	SignalHub.add_item_to_player.connect(update)
 	SignalHub.drop_item_from_player.connect(dropItem)
+	SignalHub.get_highlight_item.connect(getHighlightItem)
 
 func update(inventory: Inventory) -> void:
 	counter=0
@@ -44,6 +45,8 @@ func highlight_slot(index: int) -> void:
 			slot.highlight(true)
 		else:
 			slot.highlight(false)
+	SignalHub.emit_current_highlight_item(highlight)
+
 
 func dropItem(inventory: Inventory)->void:
 	var items: Array[Item] = inventory.get_items()
@@ -51,3 +54,8 @@ func dropItem(inventory: Inventory)->void:
 	var returnItem=items[highlight]
 	inventory.remove_item(returnItem)
 	SignalHub.emit_item_dropped(returnItem)
+
+func getHighlightItem(inventory:Inventory)->void:
+	var items: Array[Item] = inventory.get_items()
+	if highlight>=items.size():highlight=0
+	SignalHub.emit_current_highlight_item(highlight)
