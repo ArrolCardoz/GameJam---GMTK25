@@ -84,4 +84,4 @@ position = Vector2(116, 60)
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)
-MOVE_SPEED = null
+MOVE_SPEED = 250.0

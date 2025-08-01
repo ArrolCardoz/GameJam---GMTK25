@@ -66,9 +66,7 @@ func update_debug_label()->void:
 
 func pickUpItem()->void:
 	var pickup:Pickup=_pickups_in_range[0]
-	SignalHub.emit_get_highlight_item(_inventory)
-	_inventory.add_item(pickup.getItem(),_highlightItem)
-	SignalHub.emit_updateHUD(_inventory)
+	addItemInInventory(pickup.getItem())
 	pickup.die()
 
 func placeItemInStation()->void:
@@ -82,15 +80,18 @@ func pickItemInStation()->void:
 	if _stations_in_range[0]._isFull:
 		var item:Item=_stations_in_range[0].getItem()
 		_stations_in_range[0].remove_item()
-		SignalHub.emit_get_highlight_item(_inventory)
-		_inventory.add_item(item,_highlightItem)
-		SignalHub.emit_updateHUD(_inventory)
+		addItemInInventory(item)
 
 func swapItemInStation()->void:
 	if _stations_in_range[0]._isFull:
 				var item:Item=_stations_in_range[0].getItem()
-				_inventory.add_item(item)
+				addItemInInventory(item)
 				SignalHub.emit_drop_item_from_player(_inventory)
+
+func addItemInInventory(item:Item)->void:
+	SignalHub.emit_get_highlight_item(_inventory)
+	_inventory.add_item(item,_highlightItem)
+	SignalHub.emit_updateHUD(_inventory)
 
 func update_hud(item:Item)->void:
 	_stations_in_range[0].place_item(item)
