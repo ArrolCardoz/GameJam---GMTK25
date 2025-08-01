@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=14 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
 [ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_c3lg8"]
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
+[ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="13_ymbih"]
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_nrmop")
@@ -69,7 +70,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Cabinet2" parent="." instance=ExtResource("3_efum6")]
-position = Vector2(84, 60)
+position = Vector2(228, 63)
 scale = Vector2(2, 2)
 collision_layer = 1
 collision_mask = 1
@@ -79,3 +80,7 @@ position = Vector2(20, 60)
 scale = Vector2(2, 2)
 collision_layer = 1
 collision_mask = 1
+
+[node name="Oven" parent="." instance=ExtResource("13_ymbih")]
+position = Vector2(116, 60)
+collision_layer = 16

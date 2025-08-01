@@ -8,6 +8,8 @@
 size = Vector2(16, 16)
 
 [node name="Cabinet" instance=ExtResource("1_y06qv")]
+collision_layer = 16
+collision_mask = 1
 station = ExtResource("2_jom8j")
 _maxItems = 1
 
@@ -23,6 +25,3 @@ position = Vector2(0, -5)
 [node name="Sprite2D" parent="markers/Marker2D" index="0"]
 position = Vector2(0, -1)
 scale = Vector2(0.545, 0.545)
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]

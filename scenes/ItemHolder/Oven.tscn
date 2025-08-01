@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://duxspfbvc8p2t"]
+
+[ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_b722u"]
+[ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="2_osr54"]
+[ext_resource type="Script" uid="uid://d2k2shk1iy8ri" path="res://scenes/ItemHolder/Oven.gd" id="2_y7t2s"]
+[ext_resource type="SpriteFrames" uid="uid://c7xu0jsecxj1r" path="res://resources/Stations/OvenAnimation.tres" id="3_y7t2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t2s"]
+
+[node name="Oven" instance=ExtResource("1_b722u")]
+collision_layer = 16
+collision_mask = 1
+script = ExtResource("2_y7t2s")
+station = ExtResource("2_osr54")
+_maxItems = 1
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_y7t2s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = ExtResource("3_y7t2s")

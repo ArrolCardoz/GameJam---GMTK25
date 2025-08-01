@@ -43,6 +43,7 @@ func remove_item()->void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	print(area)
 	var parent:= area.get_parent()
 	if parent is PickupAction:
 		parent.get_character().on_station_in_range(self)

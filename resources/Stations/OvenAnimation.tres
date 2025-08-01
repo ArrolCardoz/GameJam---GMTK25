@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c7xu0jsecxj1r"]
+
+[ext_resource type="Texture2D" uid="uid://dv5072iowhhde" path="res://assets/station/Oven/CookingAnimated.png" id="1_6k8ar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxou5"]
+atlas = ExtResource("1_6k8ar")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7t2s"]
+atlas = ExtResource("1_6k8ar")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sacsa"]
+atlas = ExtResource("1_6k8ar")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxou5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7t2s")
+}],
+"loop": true,
+"name": &"loaded_pizza_cooked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sacsa")
+}],
+"loop": true,
+"name": &"loaded_pizza_raw",
+"speed": 5.0
+}]

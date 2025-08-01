@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://crn1wxyi7ux75" path="res://scenes/ItemHolder/ItemHolder.gd" id="1_l421i"]
 
 [node name="ItemHolder" type="Area2D"]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_l421i")
 
@@ -17,3 +17,6 @@ script = ExtResource("1_l421i")
 
 [node name="Sprite2D" type="Sprite2D" parent="markers/Marker2D"]
 scale = Vector2(0.75, 0.75)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
