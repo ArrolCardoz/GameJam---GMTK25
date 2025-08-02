@@ -1,42 +1,151 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4x6tw7pl53db"]
+[gd_scene load_steps=10 format=3 uid="uid://b4x6tw7pl53db"]
 
 [ext_resource type="Script" uid="uid://eysmygo07vei" path="res://scenes/StationDialogue/StationDialogue.gd" id="1_wqfj2"]
 [ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="2_46u5g"]
 [ext_resource type="PackedScene" uid="uid://ddrp3kwifsxfi" path="res://scenes/RecipieManager/RecipieManager.tscn" id="3_jpvnf"]
+[ext_resource type="Texture2D" uid="uid://coq2mn44hxk5b" path="res://assets/station/PizzaStation/pizzaStationDialogue.png" id="3_qgx2v"]
+[ext_resource type="Texture2D" uid="uid://iopshijqyegt" path="res://assets/Item/pizza/dough.png" id="4_8pnps"]
 [ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="4_fmhuv"]
 [ext_resource type="Script" uid="uid://cb7ehmwxx6vjb" path="res://classes/Recipies.gd" id="5_qgx2v"]
 [ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="6_8pnps"]
 [ext_resource type="Resource" uid="uid://cjs1ot2bpvpdh" path="res://resources/Stations/ovenRecipies.tres" id="7_j1ueq"]
 
 [node name="StationDialogue" type="PanelContainer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 74.31
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wqfj2")
 
-[node name="PizzaStation" type="TextureRect" parent="."]
+[node name="Oven" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_46u5g")
 
-[node name="PizzaTimer" type="Timer" parent="PizzaStation"]
+[node name="OvenTimer" type="Timer" parent="Oven"]
 one_shot = true
 
-[node name="Label" type="Label" parent="PizzaStation"]
+[node name="Label" type="Label" parent="Oven"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="itemTexture" type="TextureRect" parent="."]
+[node name="PizzaStation" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(254.715, 331.055)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
+texture = ExtResource("3_qgx2v")
+stretch_mode = 4
+
+[node name="itemTexture2" type="TextureRect" parent="PizzaStation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.2755
+offset_top = -44.6705
+offset_right = -13.2755
+offset_bottom = -28.6705
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("4_8pnps")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PizzaStation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer"]
+custom_minimum_size = Vector2(15.895, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PizzaStation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 184.605)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PizzaStation/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "A"
+
+[node name="Control2" type="Control" parent="PizzaStation/HBoxContainer"]
+custom_minimum_size = Vector2(46.14, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PizzaStation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 112.1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PizzaStation/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "W"
+
+[node name="Control3" type="Control" parent="PizzaStation/HBoxContainer"]
+custom_minimum_size = Vector2(30.395, 0)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PizzaStation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 112.1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PizzaStation/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "S"
+
+[node name="Control4" type="Control" parent="PizzaStation/HBoxContainer"]
+custom_minimum_size = Vector2(51.215, 0)
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="PizzaStation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 112.1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PizzaStation/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "E"
+
+[node name="Control5" type="Control" parent="PizzaStation/HBoxContainer"]
+custom_minimum_size = Vector2(-5.08, 0)
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="PizzaStation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PizzaStation/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(0, 182.825)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PizzaStation/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+text = "D"
 
 [node name="RecipieManager" parent="." instance=ExtResource("3_jpvnf")]
 stationRecipies = Dictionary[ExtResource("4_fmhuv"), ExtResource("5_qgx2v")]({
 ExtResource("6_8pnps"): ExtResource("7_j1ueq")
 })
 
-[connection signal="timeout" from="PizzaStation/PizzaTimer" to="." method="_on_pizza_timer_timeout"]
+[node name="itemTexture" type="TextureRect" parent="."]
+layout_mode = 2
+
+[connection signal="timeout" from="Oven/OvenTimer" to="." method="_on_pizza_timer_timeout"]

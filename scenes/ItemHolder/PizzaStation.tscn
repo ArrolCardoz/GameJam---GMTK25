@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://qqdb714531w7"]
+
+[ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_oetn8"]
+[ext_resource type="Script" uid="uid://bj5y2hwbjiogm" path="res://scenes/ItemHolder/PizzaStation.gd" id="2_00y5n"]
+[ext_resource type="Texture2D" uid="uid://ba3kym4istdsp" path="res://assets/station/PizzaStation/pizzaStation.png" id="2_uyn2v"]
+[ext_resource type="Resource" uid="uid://cmtraf4kexvh5" path="res://resources/Stations/PizzaStation.tres" id="3_00y5n"]
+
+[node name="PizzaStation" instance=ExtResource("1_oetn8")]
+script = ExtResource("2_00y5n")
+station = ExtResource("3_00y5n")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_uyn2v")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="3"]

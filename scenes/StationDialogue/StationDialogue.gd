@@ -1,10 +1,11 @@
 extends PanelContainer
 class_name StationDialogue
 
-@onready var pizza_station: TextureRect = $PizzaStation
+@onready var oven: TextureRect = $Oven
 @onready var item_texture: TextureRect = $itemTexture
 @onready var recipie_manager: Node = $RecipieManager
-@onready var pizza_timer: Timer = $PizzaStation/PizzaTimer
+@onready var pizza_timer: Timer = $Oven/OvenTimer
+@onready var pizza_station: TextureRect = $PizzaStation
 
 
 var _usingStation:bool=false
@@ -64,11 +65,14 @@ func openStation(station:Station,item:Item)->void:
 	_usingStation=true
 	match station.name:
 		Oven.STATION_NAME:
-			_currentDiaogue=pizza_station
-			pizza_station.show()
+			_currentDiaogue=oven
+			oven.show()
 			SignalHub.emit_get_highlight_item(_player_ref._inventory)
 			await get_tree().create_timer(0.1).timeout
 			_just_opened = false
+		PizzaStation.STATION_NAME:
+			_currentDiaogue=pizza_station
+
 
 func swap_array_and_var(arr: Array, index: int) -> void:
 	if index >= arr.size():
