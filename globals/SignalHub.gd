@@ -28,3 +28,7 @@ func emit_get_highlight_item(inventory:Inventory)->void:
 signal current_highlight_item(i:int)
 func emit_current_highlight_item(i:int)->void:
 	current_highlight_item.emit(i)
+
+signal day_over()
+func emit_day_over():
+	day_over.emit()

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://dplohtxg3p4vm"]
+
+[ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="1_dts3u"]
+[ext_resource type="Script" uid="uid://cxq7twxyvwvvv" path="res://classes/Wave.gd" id="2_ay4w8"]
+
+[resource]
+script = ExtResource("2_ay4w8")
+time = 90.0
+customerScene = ExtResource("1_dts3u")
+metadata/_custom_type_script = "uid://cxq7twxyvwvvv"

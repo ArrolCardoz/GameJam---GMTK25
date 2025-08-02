@@ -1,9 +1,10 @@
 extends CharacterBody2D
 class_name BaseNPC
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var debug_label: Label = $debug_label
 
 @export var SPEED:float=100
+
+@onready var debug_label: Label = $debug_label
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var thinking_timer: Timer = $ThinkingTimer
 @onready var food_timer: Timer = $FoodTimer
 @onready var eating_timer: Timer = $EatingTimer
@@ -15,6 +16,7 @@ enum STATES {WaitingForTable,Thinking,WaitingForFood,Eating,Leaving}
 var _current_table:Table
 var _state:STATES=STATES.WaitingForTable
 var _food:Item
+var _exitPos:Vector2
 
 func _ready() -> void:
 	_current_table=Tablemanager.get_free_table()
@@ -32,7 +34,7 @@ func processWaitingForTable()->void:
 		if _current_table!=null:
 			navigation_agent_2d.target_position=_current_table.sitting_marker.global_position
 
-	if navigation_agent_2d.is_navigation_finished():
+	if navigation_agent_2d.is_navigation_finished()and _current_table!=null:
 		global_position = _current_table.sitting_marker.global_position
 		velocity = Vector2.ZERO
 		rotation=0
@@ -60,7 +62,13 @@ func processEating()->void:
 		eating_timer.start()
 
 func processLeaving()->void:
-	pass
+	if navigation_agent_2d.target_position!=null:
+		navigation_agent_2d.target_position=GameManager.getExitMarker()
+	if navigation_agent_2d.is_navigation_finished():
+		var tween:Tween=create_tween()
+		await tween.tween_property(self,"modulate",Color(0,0,0,0),1)
+		tween.tween_callback(queue_free)
+
 
 
 func move() -> void:

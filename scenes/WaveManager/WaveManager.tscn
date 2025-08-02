@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://wun4mynegf32"]
+
+[ext_resource type="Script" uid="uid://bb4ew6gkfihhu" path="res://scenes/WaveManager/WaveManager.gd" id="1_l5jeo"]
+[ext_resource type="Script" uid="uid://dftmqfcypc0nv" path="res://classes/Waves.gd" id="2_cgj2o"]
+[ext_resource type="Resource" uid="uid://dahvf8ahrtkud" path="res://resources/Waves/day1.tres" id="3_sicov"]
+
+[node name="WaveManager" type="Node2D" node_paths=PackedStringArray("spawner")]
+script = ExtResource("1_l5jeo")
+DAY = Dictionary[int, ExtResource("2_cgj2o")]({
+1: ExtResource("3_sicov")
+})
+spawner = NodePath("spawner")
+
+[node name="spawner" type="Marker2D" parent="."]
