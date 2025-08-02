@@ -38,6 +38,7 @@ tile_map_data = PackedByteArray("AAABAAAAAAABAAwAAAACAAAAAAABAAwAAAADAAAAAAABAAw
 tile_set = ExtResource("2_e7jje")
 
 [node name="ExitMarker" type="Marker2D" parent="."]
+position = Vector2(227, 163)
 
 [node name="EnterMarker" type="Marker2D" parent="."]
 position = Vector2(26, 73)

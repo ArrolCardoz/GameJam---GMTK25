@@ -17,3 +17,4 @@ func reserve(npc: BaseNPC):
 func release():
 	_is_occupied = false
 	_current_npc = null
+	Tablemanager.table_free(self)

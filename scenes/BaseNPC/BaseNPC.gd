@@ -18,11 +18,11 @@ var _current_table:Table
 var _state:STATES=STATES.WaitingForTable
 var _food:Item
 var _exitPos:Vector2
+var _leavingFlag:bool=false
 
 func _ready() -> void:
 	_num_of_customers+=1
-	_current_table=Tablemanager.get_free_table(self)
-	Tablemanager.table_freed.connect(_on_table_freed)
+	Tablemanager.request_table(self)
 	#if _current_table!=null:
 	#	navigation_agent_2d.target_position=_current_table.sitting_marker.global_position
 
@@ -33,20 +33,11 @@ func _physics_process(delta: float) -> void:
 	move()
 
 func processWaitingForTable()->void:
-	if navigation_agent_2d.target_position==Vector2.ZERO:
-		if _current_table!=null:
-			navigation_agent_2d.target_position=_current_table.sitting_marker.global_position
-
 	if navigation_agent_2d.is_navigation_finished()and _current_table!=null:
 		global_position = _current_table.sitting_marker.global_position
 		velocity = Vector2.ZERO
 		rotation=0
 		_state = STATES.Thinking
-
-func _on_table_freed():
-	if _state == STATES.WaitingForTable and _current_table == null:
-		request_table()
-
 
 func processThinking()->void:
 	if thinking_timer.is_stopped():
@@ -69,8 +60,9 @@ func processEating()->void:
 		eating_timer.start()
 
 func processLeaving()->void:
-	if navigation_agent_2d.target_position!=null:
-		Tablemanager.release_table(_current_table)
+	if !_leavingFlag:
+		_leavingFlag=true
+		_current_table.release()
 		navigation_agent_2d.target_position=GameManager.getExitMarker()
 	if navigation_agent_2d.is_navigation_finished():
 		var tween:Tween=create_tween()
@@ -115,12 +107,10 @@ func update_debug_label()->void:
 	debug_label.text=s
 	debug_label.rotation=-rotation
 
-func request_table():
-	var table:Table = Tablemanager.get_free_table(self)
-	if table:
-		navigation_agent_2d.target_position = table.sitting_marker.global_position
-		_current_table = table
 
+func assign_table(table: Table) -> void:
+	_current_table = table
+	navigation_agent_2d.target_position = table.sitting_marker.global_position
 
 
 func updateMovement()->void:

@@ -33,9 +33,6 @@ func updateNextWaveTime()->void:
 func updateDayTimer(delta: float)->void:
 	if !_dayStarted:return
 	_dayTime+=delta
-	print(_dayTime)
-	print("\n")
-	print(_nextWaveTime)
 	if _dayTime>day_duration:
 		_dayStarted=false
 		SignalHub.emit_day_over()
