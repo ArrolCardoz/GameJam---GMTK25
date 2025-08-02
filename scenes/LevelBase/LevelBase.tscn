@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=20 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 [ext_resource type="PackedScene" uid="uid://0wu7usorqxiw" path="res://scenes/ItemHolder/Table.tscn" id="13_ymbih"]
 [ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="14_c3lg8"]
+[ext_resource type="PackedScene" uid="uid://bceseug4agee5" path="res://scenes/HUD/Hud.tscn" id="15_spxwu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c3lg8"]
 vertices = PackedVector2Array(315.898, 170.063, 10.0938, 171.93, 11.9063, -21, 314.094, -21)
@@ -84,6 +85,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="StationDialogue" parent="CanvasLayer" instance=ExtResource("11_c3lg8")]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("15_spxwu")]
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)

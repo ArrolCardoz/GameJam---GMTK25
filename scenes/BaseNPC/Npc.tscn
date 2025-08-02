@@ -1,63 +1,103 @@
-[gd_scene load_steps=8 format=3 uid="uid://ecxqpm8u4p8g"]
+[gd_scene load_steps=14 format=3 uid="uid://ecxqpm8u4p8g"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_k34f2"]
 [ext_resource type="Script" uid="uid://1cwe6g850v8h" path="res://scenes/BaseNPC/BaseNPC.gd" id="2_auv6d"]
 [ext_resource type="Texture2D" uid="uid://bgddvgvwxouk2" path="res://assets/player/player-single.png" id="2_d0na0"]
+[ext_resource type="Texture2D" uid="uid://drsfuylwm1fnc" path="res://assets/cash.png" id="3_121yu"]
 [ext_resource type="Texture2D" uid="uid://da80x2tg2twyu" path="res://assets/thinking white cloud.png" id="4_auv6d"]
+[ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="5_huchj"]
 [ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="5_n0381"]
+[ext_resource type="AudioStream" uid="uid://kwdivyqbn431" path="res://assets/Sound/515643__mashedtatoes2__ding2.wav" id="8_0i78n"]
+
+[sub_resource type="Curve" id="Curve_121yu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.534296, 0.864179), 0.0, 0.0, 0, 0, Vector2(0.98556, 0.35), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_huchj"]
+curve = SubResource("Curve_121yu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_121yu"]
+lifetime_randomness = 0.81
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.111
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_max = 151.94
+angular_velocity_min = -309.33
+angular_velocity_max = 137.65
+orbit_velocity_min = -0.273
+orbit_velocity_max = 0.265
+damping_max = 84.918
+scale_curve = SubResource("CurveTexture_huchj")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0na0"]
 radius = 8.0
 height = 26.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_d0na0"]
-font_size = 64
+[sub_resource type="LabelSettings" id="LabelSettings_0i78n"]
+font = ExtResource("5_huchj")
+font_size = 20
 
 [node name="BaseNPC" instance=ExtResource("1_k34f2")]
 script = ExtResource("2_auv6d")
 SPEED = 100.0
+CASH = 3
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0"]
+emitting = false
+amount = 16
+texture = ExtResource("3_121yu")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.54
+process_material = SubResource("ParticleProcessMaterial_121yu")
+
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_d0na0")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 modulate = Color(0.07, 0.163, 1, 1)
 texture = ExtResource("2_d0na0")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="2"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3"]
 debug_enabled = true
 
-[node name="debug_label" type="Label" parent="." index="3"]
+[node name="debug_label" type="Label" parent="." index="4"]
+visible = false
 offset_left = -28.0
 offset_top = -63.0
 offset_right = 118.0
 offset_bottom = 25.0
 scale = Vector2(0.24, 0.24)
 text = "0000"
-label_settings = SubResource("LabelSettings_d0na0")
+label_settings = SubResource("LabelSettings_0i78n")
 
-[node name="ThinkingTimer" type="Timer" parent="." index="4"]
+[node name="ThinkingTimer" type="Timer" parent="." index="5"]
 wait_time = 3.0
 one_shot = true
 
-[node name="FoodTimer" type="Timer" parent="." index="5"]
+[node name="FoodTimer" type="Timer" parent="." index="6"]
 wait_time = 20.0
 one_shot = true
 
-[node name="EatingTimer" type="Timer" parent="." index="6"]
+[node name="EatingTimer" type="Timer" parent="." index="7"]
 one_shot = true
 
-[node name="thinkingCloud" type="Sprite2D" parent="." index="7"]
+[node name="thinkingCloud" type="Sprite2D" parent="." index="8"]
 visible = false
 position = Vector2(-20, -21)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("4_auv6d")
 
-[node name="FoodIcon" type="Sprite2D" parent="." index="8"]
+[node name="FoodIcon" type="Sprite2D" parent="." index="9"]
 visible = false
 position = Vector2(-22, -25)
 scale = Vector2(0.815, 0.815)
 texture = ExtResource("5_n0381")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = ExtResource("8_0i78n")
 
 [connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]

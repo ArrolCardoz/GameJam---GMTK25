@@ -40,3 +40,7 @@ func emit_spawn_customer(scene:PackedScene,pos:Vector2)->void:
 signal start_day(i:int)
 func emit_start_day(i:int):
 	start_day.emit(i)
+
+signal get_cash(i:int)
+func emit_get_cash(i:int):
+	get_cash.emit(i)

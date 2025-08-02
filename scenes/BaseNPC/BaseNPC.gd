@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name BaseNPC
 
 @export var SPEED:float=100
+@export var CASH:int=3
 
 @onready var debug_label: Label = $debug_label
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -10,6 +11,8 @@ class_name BaseNPC
 @onready var eating_timer: Timer = $EatingTimer
 @onready var thinking_cloud: Sprite2D = $thinkingCloud
 @onready var food_icon: Sprite2D = $FoodIcon
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 enum STATES {WaitingForTable,Thinking,WaitingForFood,Eating,Leaving}
 
@@ -28,7 +31,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	update_debug_label()
+	#update_debug_label()
 	updateMovement()
 	move()
 
@@ -61,6 +64,11 @@ func processEating()->void:
 
 func processLeaving()->void:
 	if !_leavingFlag:
+		SignalHub.emit_get_cash(CASH)
+		debug_label.show()
+		debug_label.text="+%d"%CASH
+		sound.play()
+		gpu_particles_2d.emitting=true
 		_leavingFlag=true
 		_current_table.release()
 		navigation_agent_2d.target_position=GameManager.getExitMarker()
@@ -96,16 +104,16 @@ func sit_down():
 	_current_table.release()
 	queue_free()
 
-func update_debug_label()->void:
-	var s:String=""
-	s+="NavFinished:%s\n"%navigation_agent_2d.is_navigation_finished()
-	s+="TargetReached:%s\n"%navigation_agent_2d.is_target_reached()
-	s+="Target:%s\n"%navigation_agent_2d.target_position
-	s += "DistanceToNext: %.2f\n" % global_position.distance_to(navigation_agent_2d.get_next_path_position())
-	s += "STATE: %s\n" % STATES.find_key(_state)
+#func update_debug_label()->void:
+	#var s:String=""
+	#s+="NavFinished:%s\n"%navigation_agent_2d.is_navigation_finished()
+	#s+="TargetReached:%s\n"%navigation_agent_2d.is_target_reached()
+	#s+="Target:%s\n"%navigation_agent_2d.target_position
+	#s += "DistanceToNext: %.2f\n" % global_position.distance_to(navigation_agent_2d.get_next_path_position())
+	#s += "STATE: %s\n" % STATES.find_key(_state)
 
-	debug_label.text=s
-	debug_label.rotation=-rotation
+	#debug_label.text=s
+	#debug_label.rotation=-rotation
 
 
 func assign_table(table: Table) -> void:
