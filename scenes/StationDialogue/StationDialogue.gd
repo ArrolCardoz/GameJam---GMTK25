@@ -7,6 +7,8 @@ class_name StationDialogue
 @onready var pizza_timer: Timer = $Oven/OvenTimer
 @onready var pizza_station: TextureRect = $PizzaStation
 @onready var item_of_pizza_station: TextureRect = $PizzaStation/itemOfPizzaStation
+@onready var open_door: TextureRect = $Oven/openDoor
+@onready var closed_door: TextureRect = $Oven/closedDoor
 
 
 var _usingStation:bool=false
@@ -21,6 +23,7 @@ var _displayItem:TextureRect
 
 func setCurrentItem(i:Item)->void:
 	_currentItem=i
+
 	if i==null:_displayItem.texture=null
 	else:
 		_displayItem.texture=_currentItem.texture
@@ -81,6 +84,7 @@ func openStation(station:Station,item:Item)->void:
 	_usingStation=true
 	match station.name:
 		Oven.STATION_NAME:
+			ovenOpenDoor()
 			_currentDiaogue=oven
 			_displayItem=item_of_oven
 		PizzaStation.STATION_NAME:
@@ -117,9 +121,18 @@ func useStation()->void:
 			_player_ref._stations_in_range[0].startStation(_cookingItem)
 			setCurrentItem(null)
 			pizza_timer.start()
+			ovenCloseDoor()
 		PizzaStation.STATION_NAME:
 			setCurrentItem(_cookingItem)
 
+func ovenOpenDoor()->void:
+	open_door.show()
+	closed_door.hide()
+
+func ovenCloseDoor()->void:
+	open_door.hide()
+	closed_door.show()
 
 func _on_pizza_timer_timeout() -> void:
+	ovenOpenDoor()
 	setCurrentItem(_cookingItem)

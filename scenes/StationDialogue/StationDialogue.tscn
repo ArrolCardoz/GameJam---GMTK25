@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4x6tw7pl53db"]
+[gd_scene load_steps=9 format=3 uid="uid://b4x6tw7pl53db"]
 
 [ext_resource type="Script" uid="uid://eysmygo07vei" path="res://scenes/StationDialogue/StationDialogue.gd" id="1_wqfj2"]
-[ext_resource type="Texture2D" uid="uid://cfsote0dmtko0" path="res://assets/Item/items-Sheet-Sheet-Sheet.png" id="2_46u5g"]
+[ext_resource type="Texture2D" uid="uid://dqwvlfems54c7" path="res://assets/station/Oven/OvenBGDialogue.png" id="2_x0b1b"]
+[ext_resource type="Texture2D" uid="uid://thvcskrivbyw" path="res://assets/Item/pizza/pepproniPizza.png" id="3_7353p"]
 [ext_resource type="PackedScene" uid="uid://ddrp3kwifsxfi" path="res://scenes/RecipieManager/RecipieManager.tscn" id="3_jpvnf"]
 [ext_resource type="Texture2D" uid="uid://coq2mn44hxk5b" path="res://assets/station/PizzaStation/pizzaStationDialogue.png" id="3_qgx2v"]
 [ext_resource type="Texture2D" uid="uid://iopshijqyegt" path="res://assets/Item/pizza/dough.png" id="4_8pnps"]
+[ext_resource type="Texture2D" uid="uid://k6cc3evmb5wt" path="res://assets/station/Oven/openBottomDoor.png" id="4_fmhuv"]
+[ext_resource type="Texture2D" uid="uid://rthkhqepdo7k" path="res://assets/station/Oven/closedBottomDoor.png" id="5_qgx2v"]
 
 [node name="StationDialogue" type="PanelContainer"]
 visible = false
@@ -19,8 +22,13 @@ script = ExtResource("1_wqfj2")
 
 [node name="Oven" type="TextureRect" parent="."]
 visible = false
+custom_minimum_size = Vector2(179.865, 252.105)
 layout_mode = 2
-texture = ExtResource("2_46u5g")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_x0b1b")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="OvenTimer" type="Timer" parent="Oven"]
 one_shot = true
@@ -31,9 +39,36 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="item_of_oven" type="TextureRect" parent="Oven"]
-layout_mode = 2
-offset_right = 320.0
-offset_bottom = 331.055
+layout_mode = 0
+offset_left = 54.0
+offset_top = 72.0
+offset_right = 70.0
+offset_bottom = 88.0
+scale = Vector2(4.61, 4.61)
+texture = ExtResource("3_7353p")
+stretch_mode = 4
+
+[node name="openDoor" type="TextureRect" parent="Oven"]
+custom_minimum_size = Vector2(179.865, 252.105)
+offset_left = 15.0
+offset_right = 194.865
+offset_bottom = 252.105
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_fmhuv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="closedDoor" type="TextureRect" parent="Oven"]
+custom_minimum_size = Vector2(179.865, 252.105)
+offset_left = 3.0
+offset_right = 182.865
+offset_bottom = 252.105
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_qgx2v")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="PizzaStation" type="TextureRect" parent="."]
 visible = false
