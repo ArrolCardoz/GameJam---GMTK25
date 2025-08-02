@@ -14,6 +14,7 @@ var _item:Item
 func getItem()->Item:return _item
 func setItem(item:Item)->void:
 	_item=item
+	place_item(_item)
 
 
 func _ready() -> void:
@@ -27,7 +28,7 @@ func place_item(item)->void:
 	_item=item
 	for marker in markers.get_children():
 		var sprite:Sprite2D = marker.get_node("Sprite2D")
-		if sprite==null:continue
+		if sprite==null or _item==null:continue
 		sprite.texture = _item.texture
 		_isFull=true
 		marker.show()

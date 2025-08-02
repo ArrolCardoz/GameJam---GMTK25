@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://c35mfb568ajwu"]
+
+[ext_resource type="Resource" uid="uid://b7dnjafv04qe6" path="res://resources/Items/rolledDough.tres" id="1_gof8v"]
+[ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="2_jhjl2"]
+[ext_resource type="Script" uid="uid://cnepi5srblrbq" path="res://classes/Recipe.gd" id="3_gfe6g"]
+
+[resource]
+script = ExtResource("3_gfe6g")
+require = ExtResource("1_gof8v")
+result = ExtResource("2_jhjl2")
+metadata/_custom_type_script = "uid://cnepi5srblrbq"

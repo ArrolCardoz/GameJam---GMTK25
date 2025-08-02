@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=21 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://wun4mynegf32" path="res://scenes/WaveManager/WaveManager.tscn" id="6_o6a2i"]
 [ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
 [ext_resource type="PackedScene" uid="uid://bqty4ob8pi2ly" path="res://scenes/ObjectMaker/ObjectMaker.tscn" id="7_o6a2i"]
-[ext_resource type="Resource" uid="uid://brw6dpv2tptrn" path="res://resources/Items/cheesePizzaSliced.tres" id="7_ois7l"]
 [ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
 [ext_resource type="Resource" uid="uid://b7ubv37ljqu0" path="res://resources/Items/cheeseAndSauseDough.tres" id="9_c3lg8"]
+[ext_resource type="Resource" uid="uid://d2lj5xkxm17oi" path="res://resources/Items/dough.tres" id="10_d08iv"]
 [ext_resource type="PackedScene" uid="uid://b4x6tw7pl53db" path="res://scenes/StationDialogue/StationDialogue.tscn" id="11_c3lg8"]
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 [ext_resource type="PackedScene" uid="uid://0wu7usorqxiw" path="res://scenes/ItemHolder/Table.tscn" id="13_ymbih"]
-[ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="14_c3lg8"]
 [ext_resource type="PackedScene" uid="uid://bceseug4agee5" path="res://scenes/HUD/Hud.tscn" id="15_spxwu"]
+[ext_resource type="PackedScene" uid="uid://qqdb714531w7" path="res://scenes/ItemHolder/PizzaStation.tscn" id="19_d08iv"]
+[ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="20_gyevp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c3lg8"]
 vertices = PackedVector2Array(315.898, 170.063, 10.0938, 171.93, 11.9063, -21, 314.094, -21)
@@ -50,12 +51,12 @@ spawner = NodePath("../EnterMarker")
 [node name="ObjectMaker" parent="." instance=ExtResource("7_o6a2i")]
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
-position = Vector2(39, 100)
+position = Vector2(137, 79)
 item = ExtResource("5_6hn50")
 
 [node name="Pickup2" parent="." instance=ExtResource("4_u8cij")]
-position = Vector2(179, 45)
-item = ExtResource("7_ois7l")
+position = Vector2(153, 79)
+item = ExtResource("10_d08iv")
 
 [node name="Pickup3" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(274, 62)
@@ -70,7 +71,7 @@ position = Vector2(232, 150)
 item = ExtResource("4_spxwu")
 
 [node name="Pickup6" parent="." instance=ExtResource("4_u8cij")]
-position = Vector2(55, 144)
+position = Vector2(170, 79)
 item = ExtResource("9_c3lg8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -103,11 +104,8 @@ position = Vector2(300, 146)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_c3lg8")
 
-[node name="BaseNPC" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(233, 140)
+[node name="PizzaStation" parent="." instance=ExtResource("19_d08iv")]
+position = Vector2(217, 15)
 
-[node name="BaseNPC2" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(243, 101)
-
-[node name="BaseNPC3" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(245, 53)
+[node name="Oven" parent="." instance=ExtResource("20_gyevp")]
+position = Vector2(256, 19)

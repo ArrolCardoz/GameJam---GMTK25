@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://bgx0u3aswl3g"]
+
+[ext_resource type="Resource" uid="uid://bcceulh26kvc8" path="res://resources/Items/slicedPeproniPizza.tres" id="2_khids"]
+[ext_resource type="Resource" uid="uid://0p5t3euctef" path="res://resources/Items/pepproniPizza.tres" id="2_pogd1"]
+[ext_resource type="Script" uid="uid://cnepi5srblrbq" path="res://classes/Recipe.gd" id="3_fwhoj"]
+
+[resource]
+script = ExtResource("3_fwhoj")
+require = ExtResource("2_pogd1")
+result = ExtResource("2_khids")
+metadata/_custom_type_script = "uid://cnepi5srblrbq"

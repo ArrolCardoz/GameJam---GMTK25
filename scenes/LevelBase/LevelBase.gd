@@ -12,6 +12,6 @@ func populateFoodManager()->void:
 	for i in _currentMenu:
 		FoodManager.add_current_menu(i)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("5"):
-		SignalHub.emit_start_day(1)
+#func _unhandled_input(event: InputEvent) -> void:
+#	if Input.is_action_just_pressed("5"):
+#		SignalHub.emit_start_day(1)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://d2m742nwgvm2a"]
+
+[ext_resource type="Resource" uid="uid://4ja66pues0mk" path="res://resources/Items/pepproniDough.tres" id="1_at8sm"]
+[ext_resource type="Resource" uid="uid://b7ubv37ljqu0" path="res://resources/Items/cheeseAndSauseDough.tres" id="1_hf3vh"]
+[ext_resource type="Script" uid="uid://cnepi5srblrbq" path="res://classes/Recipe.gd" id="3_6dwk7"]
+
+[resource]
+script = ExtResource("3_6dwk7")
+require = ExtResource("1_hf3vh")
+result = ExtResource("1_at8sm")
+metadata/_custom_type_script = "uid://cnepi5srblrbq"

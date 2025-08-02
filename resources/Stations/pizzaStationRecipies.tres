@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StationRecipies" load_steps=10 format=3 uid="uid://bqrmehuqwffpi"]
+
+[ext_resource type="Script" uid="uid://cnepi5srblrbq" path="res://classes/Recipe.gd" id="1_8vvuc"]
+[ext_resource type="Resource" uid="uid://bk8j1u46so73" path="res://resources/recipies/cheesePizzaDough.tres" id="2_7b6oo"]
+[ext_resource type="Script" uid="uid://cb7ehmwxx6vjb" path="res://classes/Recipies.gd" id="2_e22bk"]
+[ext_resource type="Resource" uid="uid://d2m742nwgvm2a" path="res://resources/recipies/pepproniPizzaDough.tres" id="3_usx7t"]
+[ext_resource type="Resource" uid="uid://bdgt1y4ihnoao" path="res://resources/recipies/slicedCheesePizza.tres" id="4_ojwei"]
+[ext_resource type="Resource" uid="uid://bgx0u3aswl3g" path="res://resources/recipies/slicedPepproniPizza.tres" id="5_i1mp6"]
+[ext_resource type="Resource" uid="uid://c35mfb568ajwu" path="res://resources/recipies/sausedDough.tres" id="6_lwnl0"]
+[ext_resource type="Resource" uid="uid://265yo8eb7lus" path="res://resources/recipies/rolledDough.tres" id="7_udo5u"]
+[ext_resource type="Resource" uid="uid://cmtraf4kexvh5" path="res://resources/Stations/PizzaStation.tres" id="9_y7eyh"]
+
+[resource]
+script = ExtResource("2_e22bk")
+station = ExtResource("9_y7eyh")
+recipies = Array[ExtResource("1_8vvuc")]([ExtResource("2_7b6oo"), ExtResource("3_usx7t"), ExtResource("4_ojwei"), ExtResource("5_i1mp6"), ExtResource("6_lwnl0"), ExtResource("7_udo5u")])
+metadata/_custom_type_script = "uid://cb7ehmwxx6vjb"

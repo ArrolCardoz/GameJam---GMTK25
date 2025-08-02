@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddrp3kwifsxfi"]
+[gd_scene load_steps=8 format=3 uid="uid://ddrp3kwifsxfi"]
 
 [ext_resource type="Script" uid="uid://o3nujviq7v6k" path="res://scenes/RecipieManager/RecipieManager.gd" id="1_pjsxl"]
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="2_lhsnd"]
+[ext_resource type="Script" uid="uid://cb7ehmwxx6vjb" path="res://classes/Recipies.gd" id="3_8mgkv"]
+[ext_resource type="Resource" uid="uid://67ch0gv1hr38" path="res://resources/Stations/oven.tres" id="4_yn55d"]
+[ext_resource type="Resource" uid="uid://cjs1ot2bpvpdh" path="res://resources/Stations/ovenRecipies.tres" id="5_eknjg"]
+[ext_resource type="Resource" uid="uid://cmtraf4kexvh5" path="res://resources/Stations/PizzaStation.tres" id="6_bilhp"]
+[ext_resource type="Resource" uid="uid://bqrmehuqwffpi" path="res://resources/Stations/pizzaStationRecipies.tres" id="7_5rgbw"]
 
 [node name="RecipieManager" type="Node"]
 script = ExtResource("1_pjsxl")
+stationRecipies = Dictionary[ExtResource("2_lhsnd"), ExtResource("3_8mgkv")]({
+ExtResource("4_yn55d"): ExtResource("5_eknjg"),
+ExtResource("6_bilhp"): ExtResource("7_5rgbw")
+})
