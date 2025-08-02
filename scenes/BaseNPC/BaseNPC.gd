@@ -13,13 +13,16 @@ class_name BaseNPC
 
 enum STATES {WaitingForTable,Thinking,WaitingForFood,Eating,Leaving}
 
+static var _num_of_customers:int=0
 var _current_table:Table
 var _state:STATES=STATES.WaitingForTable
 var _food:Item
 var _exitPos:Vector2
 
 func _ready() -> void:
-	_current_table=Tablemanager.get_free_table()
+	_num_of_customers+=1
+	_current_table=Tablemanager.get_free_table(self)
+	Tablemanager.table_freed.connect(_on_table_freed)
 	#if _current_table!=null:
 	#	navigation_agent_2d.target_position=_current_table.sitting_marker.global_position
 
@@ -39,6 +42,10 @@ func processWaitingForTable()->void:
 		velocity = Vector2.ZERO
 		rotation=0
 		_state = STATES.Thinking
+
+func _on_table_freed():
+	if _state == STATES.WaitingForTable and _current_table == null:
+		request_table()
 
 
 func processThinking()->void:
@@ -63,10 +70,12 @@ func processEating()->void:
 
 func processLeaving()->void:
 	if navigation_agent_2d.target_position!=null:
+		Tablemanager.release_table(_current_table)
 		navigation_agent_2d.target_position=GameManager.getExitMarker()
 	if navigation_agent_2d.is_navigation_finished():
 		var tween:Tween=create_tween()
 		await tween.tween_property(self,"modulate",Color(0,0,0,0),1)
+		_num_of_customers-=1
 		tween.tween_callback(queue_free)
 
 
@@ -107,13 +116,11 @@ func update_debug_label()->void:
 	debug_label.rotation=-rotation
 
 func request_table():
-	var table:Table = Tablemanager.get_free_table()
+	var table:Table = Tablemanager.get_free_table(self)
 	if table:
-		table.reserve(self)
-		navigation_agent_2d.target_position = table.markers.get_child(0).global_position
-		_current_table=table
-	else:
-		print("No free tables available!")
+		navigation_agent_2d.target_position = table.sitting_marker.global_position
+		_current_table = table
+
 
 
 func updateMovement()->void:

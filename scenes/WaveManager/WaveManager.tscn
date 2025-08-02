@@ -9,6 +9,4 @@ script = ExtResource("1_l5jeo")
 DAY = Dictionary[int, ExtResource("2_cgj2o")]({
 1: ExtResource("3_sicov")
 })
-spawner = NodePath("spawner")
-
-[node name="spawner" type="Marker2D" parent="."]
+spawner = NodePath("")

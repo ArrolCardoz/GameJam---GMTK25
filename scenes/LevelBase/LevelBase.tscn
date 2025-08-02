@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=19 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -7,7 +7,9 @@
 [ext_resource type="Resource" uid="uid://0p5t3euctef" path="res://resources/Items/pepproniPizza.tres" id="4_spxwu"]
 [ext_resource type="PackedScene" uid="uid://bjbf6od1ctt8f" path="res://scenes/Pickup/Pickup.tscn" id="4_u8cij"]
 [ext_resource type="Resource" uid="uid://4ja66pues0mk" path="res://resources/Items/pepproniDough.tres" id="5_6hn50"]
+[ext_resource type="PackedScene" uid="uid://wun4mynegf32" path="res://scenes/WaveManager/WaveManager.tscn" id="6_o6a2i"]
 [ext_resource type="PackedScene" uid="uid://cbnb43ntxl3bi" path="res://scenes/InventoryDialog/InventoryDialog.tscn" id="7_6hn50"]
+[ext_resource type="PackedScene" uid="uid://bqty4ob8pi2ly" path="res://scenes/ObjectMaker/ObjectMaker.tscn" id="7_o6a2i"]
 [ext_resource type="Resource" uid="uid://brw6dpv2tptrn" path="res://resources/Items/cheesePizzaSliced.tres" id="7_ois7l"]
 [ext_resource type="Resource" uid="uid://dsexetbrkbukt" path="res://resources/Items/sausedDough.tres" id="8_ymbih"]
 [ext_resource type="Resource" uid="uid://b7ubv37ljqu0" path="res://resources/Items/cheeseAndSauseDough.tres" id="9_c3lg8"]
@@ -36,6 +38,14 @@ tile_map_data = PackedByteArray("AAABAAAAAAABAAwAAAACAAAAAAABAAwAAAADAAAAAAABAAw
 tile_set = ExtResource("2_e7jje")
 
 [node name="ExitMarker" type="Marker2D" parent="."]
+
+[node name="EnterMarker" type="Marker2D" parent="."]
+position = Vector2(26, 73)
+
+[node name="WaveManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("6_o6a2i")]
+spawner = NodePath("../EnterMarker")
+
+[node name="ObjectMaker" parent="." instance=ExtResource("7_o6a2i")]
 
 [node name="Pickup" parent="." instance=ExtResource("4_u8cij")]
 position = Vector2(39, 100)
@@ -86,14 +96,14 @@ position = Vector2(300, 54)
 [node name="Table3" parent="." instance=ExtResource("13_ymbih")]
 position = Vector2(300, 146)
 
-[node name="BaseNPC" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(27, 0)
-
-[node name="BaseNPC2" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(61, -7)
-
-[node name="BaseNPC3" parent="." instance=ExtResource("14_c3lg8")]
-position = Vector2(23, 48)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_c3lg8")
+
+[node name="BaseNPC" parent="." instance=ExtResource("14_c3lg8")]
+position = Vector2(233, 140)
+
+[node name="BaseNPC2" parent="." instance=ExtResource("14_c3lg8")]
+position = Vector2(243, 101)
+
+[node name="BaseNPC3" parent="." instance=ExtResource("14_c3lg8")]
+position = Vector2(245, 53)

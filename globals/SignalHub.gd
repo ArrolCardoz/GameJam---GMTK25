@@ -32,3 +32,11 @@ func emit_current_highlight_item(i:int)->void:
 signal day_over()
 func emit_day_over():
 	day_over.emit()
+
+signal spawn_customer(scene:PackedScene,pos:Vector2)
+func emit_spawn_customer(scene:PackedScene,pos:Vector2)->void:
+	spawn_customer.emit(scene,pos)
+
+signal start_day(i:int)
+func emit_start_day(i:int):
+	start_day.emit(i)

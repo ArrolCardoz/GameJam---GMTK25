@@ -18,5 +18,5 @@
 
 [resource]
 script = ExtResource("1_7pkai")
-wave = Array[ExtResource("2_8pl6m")]([ExtResource("3_s5ieo"), ExtResource("4_3ndlp"), ExtResource("5_r0bxi"), ExtResource("6_0tu0p"), ExtResource("7_hs0dc"), ExtResource("8_xaxop"), ExtResource("9_gpqsv"), ExtResource("10_xoq02"), ExtResource("11_3k2rd"), ExtResource("12_fghhv"), ExtResource("12_fghhv"), ExtResource("13_3bcn8"), ExtResource("14_b2m2g"), ExtResource("15_3ndlp")])
+wave = Array[ExtResource("2_8pl6m")]([ExtResource("3_s5ieo"), ExtResource("4_3ndlp"), ExtResource("5_r0bxi"), ExtResource("6_0tu0p"), ExtResource("7_hs0dc"), ExtResource("8_xaxop"), ExtResource("9_gpqsv"), ExtResource("10_xoq02"), ExtResource("11_3k2rd"), ExtResource("12_fghhv"), ExtResource("13_3bcn8"), ExtResource("14_b2m2g"), ExtResource("15_3ndlp")])
 metadata/_custom_type_script = "uid://dftmqfcypc0nv"
