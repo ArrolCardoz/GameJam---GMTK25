@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ecxqpm8u4p8g"]
+[gd_scene load_steps=15 format=3 uid="uid://ecxqpm8u4p8g"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_k34f2"]
 [ext_resource type="Script" uid="uid://1cwe6g850v8h" path="res://scenes/BaseNPC/BaseNPC.gd" id="2_auv6d"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="5_huchj"]
 [ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="5_n0381"]
 [ext_resource type="AudioStream" uid="uid://kwdivyqbn431" path="res://assets/Sound/515643__mashedtatoes2__ding2.wav" id="8_0i78n"]
+[ext_resource type="PackedScene" uid="uid://cct5p51hj8x8o" path="res://scenes/ProgressBar/ProgressBar.tscn" id="9_3rkl0"]
 
 [sub_resource type="Curve" id="Curve_121yu"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.534296, 0.864179), 0.0, 0.0, 0, 0, Vector2(0.98556, 0.35), 0.0, 0.0, 0, 0]
@@ -77,28 +78,40 @@ label_settings = SubResource("LabelSettings_0i78n")
 wait_time = 3.0
 one_shot = true
 
-[node name="FoodTimer" type="Timer" parent="." index="6"]
+[node name="WaitingForTableTimer" type="Timer" parent="." index="6"]
+wait_time = 15.0
+one_shot = true
+
+[node name="FoodTimer" type="Timer" parent="." index="7"]
 wait_time = 20.0
 one_shot = true
 
-[node name="EatingTimer" type="Timer" parent="." index="7"]
+[node name="EatingTimer" type="Timer" parent="." index="8"]
 one_shot = true
 
-[node name="thinkingCloud" type="Sprite2D" parent="." index="8"]
+[node name="thinkingCloud" type="Sprite2D" parent="." index="9"]
 visible = false
 position = Vector2(-20, -21)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("4_auv6d")
 
-[node name="FoodIcon" type="Sprite2D" parent="." index="9"]
+[node name="FoodIcon" type="Sprite2D" parent="." index="10"]
 visible = false
 position = Vector2(-22, -25)
 scale = Vector2(0.815, 0.815)
 texture = ExtResource("5_n0381")
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="." index="10"]
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="11"]
 stream = ExtResource("8_0i78n")
 
+[node name="ProgressBar" parent="." index="12" instance=ExtResource("9_3rkl0")]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 58.0
+offset_bottom = -13.0
+scale = Vector2(0.5, 0.5)
+
 [connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
+[connection signal="timeout" from="WaitingForTableTimer" to="." method="_on_thinking_timer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
 [connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]

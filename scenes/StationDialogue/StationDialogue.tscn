@@ -50,6 +50,7 @@ stretch_mode = 4
 
 [node name="openDoor" type="TextureRect" parent="Oven"]
 custom_minimum_size = Vector2(179.865, 252.105)
+layout_mode = 0
 offset_left = 15.0
 offset_right = 194.865
 offset_bottom = 252.105
@@ -61,6 +62,7 @@ stretch_mode = 4
 
 [node name="closedDoor" type="TextureRect" parent="Oven"]
 custom_minimum_size = Vector2(179.865, 252.105)
+layout_mode = 0
 offset_left = 3.0
 offset_right = 182.865
 offset_bottom = 252.105

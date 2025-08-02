@@ -11,9 +11,8 @@ func register_table(table: Table) -> void:
 func request_table(npc: BaseNPC) -> void:
 	for table in tables:
 		if not table._is_occupied:
-			table._is_occupied = true
-			table.reserve(npc)
-			npc.assign_table(table)
+			foundTable(npc,table)
+
 			return
 	# No free table, add NPC to queue
 	customerQueue.append(npc)
@@ -22,7 +21,10 @@ func request_table(npc: BaseNPC) -> void:
 func table_free(table: Table) -> void:
 	if customerQueue.size() > 0:
 		var next_npc: BaseNPC = customerQueue.pop_front()
-		table._is_occupied = true
-		table.reserve(next_npc)
-		next_npc.assign_table(table)
-	print("TEST")
+		foundTable(next_npc,table)
+
+
+func foundTable(npc:BaseNPC,table:Table)->void:
+	table._is_occupied = true
+	table.reserve(npc)
+	npc.assign_table(table)

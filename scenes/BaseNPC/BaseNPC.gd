@@ -13,6 +13,9 @@ class_name BaseNPC
 @onready var food_icon: Sprite2D = $FoodIcon
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 @onready var sound: AudioStreamPlayer2D = $Sound
+@onready var progress_bar: Progress = $ProgressBar
+@onready var waiting_for_table_timer: Timer = $WaitingForTableTimer
+
 
 enum STATES {WaitingForTable,Thinking,WaitingForFood,Eating,Leaving}
 
@@ -24,6 +27,7 @@ var _exitPos:Vector2
 var _leavingFlag:bool=false
 
 func _ready() -> void:
+	start_progress_bar(waiting_for_table_timer)
 	_num_of_customers+=1
 	Tablemanager.request_table(self)
 	#if _current_table!=null:
@@ -54,6 +58,7 @@ func processWaitingForFood()->void:
 		food_icon.show()
 		food_icon.texture=_food.texture
 	if _food==_current_table._item:
+		stop_progress_bar()
 		_state=STATES.Eating
 		thinking_cloud.hide()
 		food_icon.hide()
@@ -119,6 +124,7 @@ func sit_down():
 func assign_table(table: Table) -> void:
 	_current_table = table
 	navigation_agent_2d.target_position = table.sitting_marker.global_position
+	stop_progress_bar()
 
 
 func updateMovement()->void:
@@ -134,9 +140,18 @@ func updateMovement()->void:
 		STATES.Leaving:
 			processLeaving()
 
+func start_progress_bar(timer: Timer) -> void:
+	progress_bar.show()
+	progress_bar.start_progress(timer.wait_time)
+
+func stop_progress_bar()->void:
+	progress_bar.stop_progress()
+	progress_bar.hide()
+
 
 func _on_thinking_timer_timeout() -> void:
 	_state=STATES.WaitingForFood
+	start_progress_bar(food_timer)
 
 
 func _on_food_timer_timeout() -> void:

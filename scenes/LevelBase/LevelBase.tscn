@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=22 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b4x6tw7pl53db" path="res://scenes/StationDialogue/StationDialogue.tscn" id="11_c3lg8"]
 [ext_resource type="Resource" uid="uid://dh8u6yqip86yu" path="res://resources/Items/cheesePizza.tres" id="11_uw25i"]
 [ext_resource type="PackedScene" uid="uid://0wu7usorqxiw" path="res://scenes/ItemHolder/Table.tscn" id="13_ymbih"]
+[ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="14_c3lg8"]
 [ext_resource type="PackedScene" uid="uid://bceseug4agee5" path="res://scenes/HUD/Hud.tscn" id="15_spxwu"]
 [ext_resource type="PackedScene" uid="uid://qqdb714531w7" path="res://scenes/ItemHolder/PizzaStation.tscn" id="19_d08iv"]
 [ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="20_gyevp"]
@@ -109,3 +110,5 @@ position = Vector2(217, 15)
 
 [node name="Oven" parent="." instance=ExtResource("20_gyevp")]
 position = Vector2(256, 19)
+
+[node name="BaseNPC" parent="." instance=ExtResource("14_c3lg8")]

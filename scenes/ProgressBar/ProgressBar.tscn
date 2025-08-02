@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cct5p51hj8x8o"]
+
+[ext_resource type="Script" uid="uid://xgssx7f1f484" path="res://scenes/ProgressBar/Progressbar.gd" id="1_glb56"]
+[ext_resource type="Texture2D" uid="uid://21wkx3mm1r7x" path="res://assets/progressBar/square_shadow.png" id="1_ppivu"]
+[ext_resource type="Texture2D" uid="uid://c02nedm8qrwm1" path="res://assets/progressBar/progress_ph.png" id="2_t2tyc"]
+
+[node name="ProgressBar" type="TextureProgressBar"]
+offset_right = 16.0
+offset_bottom = 16.0
+fill_mode = 1
+texture_under = ExtResource("1_ppivu")
+texture_progress = ExtResource("2_t2tyc")
+script = ExtResource("1_glb56")
