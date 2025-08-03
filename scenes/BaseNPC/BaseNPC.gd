@@ -163,4 +163,5 @@ func _on_food_timer_timeout() -> void:
 
 
 func _on_eating_timer_timeout() -> void:
+	_current_table.remove_item()
 	_state=STATES.Leaving

@@ -32,4 +32,5 @@ func _on_restart_button_down() -> void:
 
 
 func _on_exit_button_down() -> void:
+	get_tree().paused = false
 	SignalHub.emit_load_main()

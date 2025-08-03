@@ -7,11 +7,13 @@ extends Node2D
 var _dayNum:int=1
 var _lastLevel:int=5
 var _canStartDay:bool=true
+var _stationDialogue_ref:StationDialogue
 
 func _enter_tree() -> void:
 	SignalHub.level_complete.connect(update_canStartDay)
 
 func _ready() -> void:
+	_stationDialogue_ref=get_tree().get_first_node_in_group(StationDialogue.GROUP_NAME)
 	GameManager.setExitMarker(exitMarker.global_position)
 	populateFoodManager()
 
@@ -25,7 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_canStartDay=false
 			SignalHub.emit_start_day(_dayNum)
 		else: SignalHub.emit_you_win()
-	elif Input.is_action_just_pressed("ese"):
+	elif Input.is_action_just_pressed("ese")and _stationDialogue_ref._usingStation:
 		SignalHub.emit_pause_game()
 	elif Input.is_action_just_pressed("RecipieBook"):
 		recipie_book.show()

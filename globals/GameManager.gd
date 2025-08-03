@@ -43,11 +43,13 @@ func update_cash(i:int)->void:
 func update_day_over()->void:
 	_day_over=true
 
+
 func load_level()->void:
-	_day_over=true
+	get_tree().change_scene_to_packed(LEVEL_BASE)
 
 func load_main()->void:
-	_day_over=true
+	get_tree().change_scene_to_packed(MAIN_MENU)
+
 
 func updateNoCustomer(b:bool)->void:
 	_no_customers=b

@@ -11,6 +11,8 @@ class_name StationDialogue
 @onready var closed_door: TextureRect = $Oven/closedDoor
 
 
+
+const GROUP_NAME:String="StationDialogue"
 var _usingStation:bool=false
 var _currentDiaogue:TextureRect
 var _currentItem:Item
@@ -20,6 +22,10 @@ var _currentStation:Station
 var _just_opened :bool= false
 var _cookingItem:Item
 var _displayItem:TextureRect
+
+func _enter_tree() -> void:
+	SignalHub.open_station.connect(openStation)
+	add_to_group(GROUP_NAME)
 
 func setCurrentItem(i:Item)->void:
 	_currentItem=i
@@ -68,8 +74,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 
-func _enter_tree() -> void:
-	SignalHub.open_station.connect(openStation)
 
 func _ready() -> void:
 	_player_ref=get_tree().get_first_node_in_group(Player.GROUP_NAME)

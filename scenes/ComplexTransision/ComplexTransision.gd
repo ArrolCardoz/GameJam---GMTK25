@@ -1,28 +1,16 @@
-extends Control
-class_name MainMenu
-@onready var color_rect: ColorRect = $ColorRect
+extends ColorRect
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+const LEVEL_BASE = preload("res://scenes/LevelBase/LevelBase.tscn")
 func _enter_tree() -> void:
 	SignalHub.load_level.connect(play_load_level)
 
 func _ready() -> void:
-
-	animation_player.play("RESET")
 	animation_player.play("load_main")
-
 
 
 func play_load_level()->void:
 	animation_player.play("load_level")
 
 func load_level()->void:
-	animation_player.play("RESET")
-	SignalHub.emit_load_level()
-
-
-
-
-func _on_play_button_down() -> void:
-	animation_player.play("RESET")
-	SignalHub.emit_load_level()
+	get_tree().change_scene_to_packed(LEVEL_BASE)
