@@ -1,12 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1ltln6x38igg"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ltln6x38igg"]
 
 [ext_resource type="Script" uid="uid://c24sv2tvar1uv" path="res://scenes/MainMenu/MainMenu.gd" id="1_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://bcadds16os8ek" path="res://assets/pauseMenu/controls 1.png" id="1_r8q81"]
+[ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="2_0qq82"]
 [ext_resource type="Texture2D" uid="uid://tjchos8lxt46" path="res://assets/buttons/blue_button00.png" id="2_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://jlufvc4owpvg" path="res://assets/buttons/yellow_button00.png" id="3_0qq82"]
 [ext_resource type="Texture2D" uid="uid://dp24qpsdmtbhy" path="res://assets/buttons/green_button00.png" id="4_y5ja3"]
 [ext_resource type="LabelSettings" uid="uid://btipmt1430aqi" path="res://resources/font/PauseMenuFont.tres" id="5_mqas3"]
 [ext_resource type="Texture2D" uid="uid://c2iem1xc2m2id" path="res://assets/pauseMenu/controls 2.png" id="6_oy0qi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y5ja3"]
+font = ExtResource("2_0qq82")
+font_size = 20
 
 [sub_resource type="Animation" id="Animation_0qq82"]
 length = 0.001
@@ -86,6 +91,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7j8ul")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.048, 0.16, 1)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.105
+offset_top = -68.6
+offset_right = 31.895
+offset_bottom = -19.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hungry
+Animals!"
+label_settings = SubResource("LabelSettings_y5ja3")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1

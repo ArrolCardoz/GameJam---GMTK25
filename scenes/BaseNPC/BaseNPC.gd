@@ -59,6 +59,7 @@ func processWaitingForFood()->void:
 		food_icon.show()
 		food_icon.texture=_food.texture
 	if _food==_current_table._item:
+		food_timer.stop()
 		stop_progress_bar()
 		_state=STATES.Eating
 		thinking_cloud.hide()
@@ -80,13 +81,14 @@ func processLeaving()->void:
 		navigation_agent_2d.target_position=GameManager.getExitMarker()
 	if navigation_agent_2d.is_navigation_finished():
 		var tween:Tween=create_tween()
-		await tween.tween_property(self,"modulate",Color(0,0,0,0),1)
-		tween.tween_callback(queue_free)
+		tween.tween_property(self,"modulate",Color(0,0,0,0),1)
 		_num_of_customers-=1
 		if _num_of_customers==0:
 			SignalHub.emit_no_customers(true)
 		else:
 			SignalHub.emit_no_customers(false)
+		tween.tween_callback(queue_free)
+
 
 
 
@@ -131,6 +133,7 @@ func sit_down():
 func assign_table(table: Table) -> void:
 	_current_table = table
 	navigation_agent_2d.target_position = table.sitting_marker.global_position
+	waiting_for_table_timer.stop()
 	stop_progress_bar()
 
 
@@ -168,3 +171,7 @@ func _on_food_timer_timeout() -> void:
 func _on_eating_timer_timeout() -> void:
 	_current_table.remove_item()
 	_state=STATES.Leaving
+
+
+func _on_waiting_for_table_timer_timeout() -> void:
+	GameManager.gameOver()

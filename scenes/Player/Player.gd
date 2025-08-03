@@ -53,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if _can_input:
-		update_debug_label()
+		#update_debug_label()
 		var moveVec:Vector2=process_input()
 		pickup_action.set_new_dir(moveVec)
 		velocity=moveVec*MOVE_SPEED
@@ -102,6 +102,7 @@ func addItemInInventory(item:Item)->void:
 	SignalHub.emit_updateHUD(_inventory)
 
 func update_hud(item:Item)->void:
+	if _stations_in_range.is_empty():return
 	_stations_in_range[0].place_item(item)
 	SignalHub.emit_updateHUD(_inventory)
 

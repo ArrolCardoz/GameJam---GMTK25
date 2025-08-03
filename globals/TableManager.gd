@@ -4,7 +4,6 @@ var tables: Array[Table] = []
 var customerQueue:Array[BaseNPC]=[]
 
 
-
 func register_table(table: Table) -> void:
 	tables.append(table)
 	table_free(table)
@@ -29,3 +28,7 @@ func foundTable(npc:BaseNPC,table:Table)->void:
 	table._is_occupied = true
 	table.reserve(npc)
 	npc.assign_table(table)
+
+func reset():
+	tables.clear()
+	customerQueue.clear()

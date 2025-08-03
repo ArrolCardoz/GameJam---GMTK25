@@ -71,20 +71,14 @@ position = Vector2(287, 193)
 [node name="Table2" parent="stations" instance=ExtResource("8_o6a2i")]
 position = Vector2(289, 102)
 
-[node name="buyOven2" parent="stations" instance=ExtResource("21_fgp6d")]
-position = Vector2(418, 286)
-
-[node name="buyOven3" parent="stations" instance=ExtResource("21_fgp6d")]
-position = Vector2(456, 286)
-
 [node name="buyOven5" parent="stations" instance=ExtResource("21_fgp6d")]
-position = Vector2(454, 96)
+position = Vector2(468, 76)
 
 [node name="buyOven6" parent="stations" instance=ExtResource("21_fgp6d")]
-position = Vector2(384, 189)
+position = Vector2(377, 190)
 
 [node name="buyOven7" parent="stations" instance=ExtResource("21_fgp6d")]
-position = Vector2(451, 188)
+position = Vector2(471, 188)
 
 [node name="Table3" parent="stations" instance=ExtResource("8_o6a2i")]
 position = Vector2(219, 197)
@@ -99,39 +93,20 @@ position = Vector2(418, 135)
 position = Vector2(516, 159)
 
 [node name="WheatBag" parent="stations" instance=ExtResource("23_6lwgi")]
-position = Vector2(418, 189)
+position = Vector2(422, 190)
 
 [node name="WheatBag2" parent="stations" instance=ExtResource("23_6lwgi")]
-position = Vector2(419, 96)
+position = Vector2(422, 77)
 
 [node name="Oven" parent="stations" instance=ExtResource("20_gyevp")]
-position = Vector2(385, 94)
-
-[node name="Oven2" parent="stations" instance=ExtResource("20_gyevp")]
-position = Vector2(382, 287)
+position = Vector2(385, 73)
 
 [node name="Cabinet" parent="stations" instance=ExtResource("14_vyo1m")]
-position = Vector2(353, 94)
-scale = Vector2(2, 2)
-
-[node name="Cabinet2" parent="stations" instance=ExtResource("14_vyo1m")]
-position = Vector2(486, 96)
+position = Vector2(346, 73)
 scale = Vector2(2, 2)
 
 [node name="Cabinet3" parent="stations" instance=ExtResource("14_vyo1m")]
 position = Vector2(519, 95)
-scale = Vector2(2, 2)
-
-[node name="Cabinet4" parent="stations" instance=ExtResource("14_vyo1m")]
-position = Vector2(488, 287)
-scale = Vector2(2, 2)
-
-[node name="Cabinet5" parent="stations" instance=ExtResource("14_vyo1m")]
-position = Vector2(521, 287)
-scale = Vector2(2, 2)
-
-[node name="Cabinet6" parent="stations" instance=ExtResource("14_vyo1m")]
-position = Vector2(350, 286)
 scale = Vector2(2, 2)
 
 [node name="buyTable" parent="stations" instance=ExtResource("22_vyo1m")]
@@ -139,15 +114,6 @@ position = Vector2(163, 103)
 
 [node name="buyTable2" parent="stations" instance=ExtResource("22_vyo1m")]
 position = Vector2(169, 191)
-
-[node name="buyTable3" parent="stations" instance=ExtResource("22_vyo1m")]
-position = Vector2(161, 280)
-
-[node name="buyTable4" parent="stations" instance=ExtResource("22_vyo1m")]
-position = Vector2(223, 283)
-
-[node name="buyTable5" parent="stations" instance=ExtResource("22_vyo1m")]
-position = Vector2(290, 282)
 
 [node name="buyTable6" parent="stations" instance=ExtResource("22_vyo1m")]
 position = Vector2(219, 100)
@@ -157,9 +123,6 @@ position = Vector2(100, 101)
 
 [node name="buyTable8" parent="stations" instance=ExtResource("22_vyo1m")]
 position = Vector2(99, 184)
-
-[node name="buyTable9" parent="stations" instance=ExtResource("22_vyo1m")]
-position = Vector2(95, 279)
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(176, 134)

@@ -26,6 +26,7 @@ sprite_frames = ExtResource("3_y7t2s")
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 5.0
 one_shot = true
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="5"]

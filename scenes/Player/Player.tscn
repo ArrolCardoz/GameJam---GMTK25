@@ -118,6 +118,7 @@ hframes = 10
 [node name="PickupAction" parent="." index="2" instance=ExtResource("5_xcisb")]
 
 [node name="DebugLabel" type="Label" parent="." index="3"]
+visible = false
 offset_left = -15.0
 offset_top = -34.0
 offset_right = 261.0

@@ -124,7 +124,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_qbosp")
 
-[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/Panel"]
+[node name="GameOverLAble" type="Label" parent="MarginContainer3/VBoxContainer/Panel"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Game Over"

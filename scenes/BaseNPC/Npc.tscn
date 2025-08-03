@@ -156,7 +156,6 @@ hframes = 19
 frame = 13
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3"]
-debug_enabled = true
 
 [node name="debug_label" type="Label" parent="." index="4"]
 visible = false
@@ -169,7 +168,7 @@ text = "0000"
 label_settings = SubResource("LabelSettings_0i78n")
 
 [node name="ThinkingTimer" type="Timer" parent="." index="5"]
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 
 [node name="WaitingForTableTimer" type="Timer" parent="." index="6"]
@@ -177,10 +176,11 @@ wait_time = 15.0
 one_shot = true
 
 [node name="FoodTimer" type="Timer" parent="." index="7"]
-wait_time = 20.0
+wait_time = 25.0
 one_shot = true
 
 [node name="EatingTimer" type="Timer" parent="." index="8"]
+wait_time = 6.0
 one_shot = true
 
 [node name="thinkingCloud" type="Sprite2D" parent="." index="9"]
@@ -217,6 +217,6 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
-[connection signal="timeout" from="WaitingForTableTimer" to="." method="_on_thinking_timer_timeout"]
+[connection signal="timeout" from="WaitingForTableTimer" to="." method="_on_waiting_for_table_timer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
 [connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]

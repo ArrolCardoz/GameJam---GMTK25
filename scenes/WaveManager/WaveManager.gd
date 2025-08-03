@@ -5,7 +5,7 @@ class_name WaveManager
 @export var day_duration := 180.0 # 3 minutes
 @export var spawner:Marker2D
 
-var _dayTime:float=0.0
+var _dayTime:float=0
 var _dayStarted:bool=false
 var _nextWaveTime:float
 var _current_day:int
@@ -14,10 +14,18 @@ var _current_wave:Wave
 var _counter:int=0
 
 func _enter_tree() -> void:
+
 	SignalHub.start_day.connect(startDay)
+	SignalHub.game_over.connect(stopDay)
+	SignalHub.you_win.connect(stopDay)
+
+func stopDay()->void:
+	_dayTime=0.0
+	_dayStarted=false
+	_counter=0
 
 func startDay(numDay:int)->void:
-	_dayTime=14
+	_dayTime=0
 	_counter=0
 	_current_day=numDay
 	_dayStarted=true
@@ -35,6 +43,7 @@ func updateDayTimer(delta: float)->void:
 	_dayTime+=delta
 	if _dayTime>day_duration:
 		_dayStarted=false
+		stopDay()
 		SignalHub.emit_day_over()
 	if _nextWaveTime<=_dayTime:
 		SignalHub.emit_spawn_customer(_current_wave.customerScene,spawner.global_position)

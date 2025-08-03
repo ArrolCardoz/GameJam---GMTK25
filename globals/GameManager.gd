@@ -4,8 +4,8 @@ const LEVEL_BASE = preload("res://scenes/LevelBase/LevelBase.tscn")
 const MAIN_MENU = preload("res://scenes/MainMenu/MainMenu.tscn")
 
 var exitMarker:Vector2=Vector2.ZERO
-var _cash:int =1000
-var _no_customers:bool=false
+var _cash:int =0
+var _no_customers:bool=true
 var _day_over:bool=false
 
 func _enter_tree() -> void:
@@ -22,7 +22,7 @@ func gameOver()->void:
 	SignalHub.emit_game_over()
 
 func start_day(day:int)->void:
-	_no_customers=false
+	_no_customers=true
 	_day_over=false
 	if day==1:
 		_cash=0
@@ -42,6 +42,7 @@ func update_cash(i:int)->void:
 
 func update_day_over()->void:
 	_day_over=true
+	endDay()
 
 
 func load_level()->void:
