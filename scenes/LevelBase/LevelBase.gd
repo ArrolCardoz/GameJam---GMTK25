@@ -27,7 +27,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_canStartDay=false
 			SignalHub.emit_start_day(_dayNum)
 		else: SignalHub.emit_you_win()
-	elif Input.is_action_just_pressed("ese")and _stationDialogue_ref._usingStation:
+	elif !_stationDialogue_ref._usingStation and Input.is_action_just_pressed("ese"):
+		await get_tree().create_timer(0.1).timeout
 		SignalHub.emit_pause_game()
 	elif Input.is_action_just_pressed("RecipieBook"):
 		recipie_book.show()

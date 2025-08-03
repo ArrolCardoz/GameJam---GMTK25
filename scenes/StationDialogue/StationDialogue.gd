@@ -36,9 +36,9 @@ func setCurrentItem(i:Item)->void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _usingStation:
-		if Input.is_action_just_pressed("ese"):
-			hide()
+		if Input.is_action_just_released("ese"):
 			_usingStation=false
+			hide()
 			_currentDiaogue.hide()
 			_player_ref.placeItemInStationFromStationDialogue(_currentItem)
 			_player_ref._inventory.replace_inventory(_player_inventory)

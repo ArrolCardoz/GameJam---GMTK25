@@ -41,7 +41,7 @@ font_size = 20
 
 [node name="BaseNPC" instance=ExtResource("1_k34f2")]
 script = ExtResource("2_auv6d")
-SPEED = 100.0
+SPEED = 50.0
 CASH = 3
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0"]
