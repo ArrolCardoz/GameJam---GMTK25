@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Station" load_steps=3 format=3 uid="uid://cgni5rsx4odlw"]
+
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="1_u6hhs"]
+[ext_resource type="Texture2D" uid="uid://cxawes8853sn4" path="res://assets/station/buy/wheatBag.png" id="2_ckxd1"]
+
+[resource]
+script = ExtResource("1_u6hhs")
+name = "wheatBag"
+texture = Dictionary[int, Texture2D]({
+0: ExtResource("2_ckxd1"),
+1: ExtResource("2_ckxd1"),
+2: ExtResource("2_ckxd1"),
+3: ExtResource("2_ckxd1")
+})
+maxItems = 0
+metadata/_custom_type_script = "uid://bmr2uufrtmuqt"

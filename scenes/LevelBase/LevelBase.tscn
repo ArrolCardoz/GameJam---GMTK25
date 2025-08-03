@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=25 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://qqdb714531w7" path="res://scenes/ItemHolder/PizzaStation.tscn" id="19_d08iv"]
 [ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="20_gyevp"]
 [ext_resource type="PackedScene" uid="uid://bm5aqobojxvn1" path="res://scenes/ItemHolder/BuyOven.tscn" id="21_fgp6d"]
+[ext_resource type="PackedScene" uid="uid://c410a00uixpoh" path="res://scenes/ItemHolder/TrashCan.tscn" id="22_ssq18"]
 [ext_resource type="PackedScene" uid="uid://crw34d6kodocw" path="res://scenes/ItemHolder/BuyTable.tscn" id="22_vyo1m"]
+[ext_resource type="PackedScene" uid="uid://tcgk647eg48e" path="res://scenes/ItemHolder/WheatBag.tscn" id="23_6lwgi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c3lg8"]
 vertices = PackedVector2Array(315.898, 170.063, 10.0938, 171.93, 11.9063, -21, 314.094, -21)
@@ -111,3 +113,9 @@ position = Vector2(72, 146)
 
 [node name="buyTablef" parent="." instance=ExtResource("22_vyo1m")]
 position = Vector2(275, 94)
+
+[node name="trashCan" parent="." instance=ExtResource("22_ssq18")]
+position = Vector2(276, 138)
+
+[node name="WheatBag" parent="." instance=ExtResource("23_6lwgi")]
+position = Vector2(230, 62)

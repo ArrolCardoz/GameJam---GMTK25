@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://tcgk647eg48e"]
+
+[ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_flukc"]
+[ext_resource type="Script" uid="uid://dq0c1q6pdajlq" path="res://scenes/ItemHolder/WheatBag.gd" id="2_sb5k0"]
+[ext_resource type="Resource" uid="uid://cgni5rsx4odlw" path="res://resources/Stations/wheatBag.tres" id="3_apwo3"]
+[ext_resource type="Shape2D" uid="uid://d70d8fn6y1oa" path="res://resources/Stations/32x32Collision.tres" id="3_sb5k0"]
+[ext_resource type="Texture2D" uid="uid://cxawes8853sn4" path="res://assets/station/buy/wheatBag.png" id="4_0cvqh"]
+
+[node name="WheatBag" instance=ExtResource("1_flukc")]
+collision_layer = 16
+collision_mask = 1
+script = ExtResource("2_sb5k0")
+station = ExtResource("3_apwo3")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_0cvqh")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = ExtResource("3_sb5k0")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="3"]

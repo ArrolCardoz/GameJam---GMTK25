@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Station" load_steps=3 format=3 uid="uid://c16m2lq5e7f4i"]
+
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="1_tcc7r"]
+[ext_resource type="Texture2D" uid="uid://cnj2a5lqtsojd" path="res://assets/station/buy/trashCan.png" id="2_tl3lt"]
+
+[resource]
+script = ExtResource("1_tcc7r")
+name = "trashCan"
+texture = Dictionary[int, Texture2D]({
+0: ExtResource("2_tl3lt"),
+1: ExtResource("2_tl3lt"),
+2: ExtResource("2_tl3lt"),
+3: ExtResource("2_tl3lt")
+})
+maxItems = 0
+metadata/_custom_type_script = "uid://bmr2uufrtmuqt"
