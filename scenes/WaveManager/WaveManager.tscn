@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://wun4mynegf32"]
+[gd_scene load_steps=8 format=3 uid="uid://wun4mynegf32"]
 
 [ext_resource type="Script" uid="uid://bb4ew6gkfihhu" path="res://scenes/WaveManager/WaveManager.gd" id="1_l5jeo"]
 [ext_resource type="Script" uid="uid://dftmqfcypc0nv" path="res://classes/Waves.gd" id="2_cgj2o"]
 [ext_resource type="Resource" uid="uid://dahvf8ahrtkud" path="res://resources/Waves/day1.tres" id="3_sicov"]
+[ext_resource type="Resource" uid="uid://bbhdcag53rw81" path="res://resources/Waves/day2.tres" id="4_h0ldq"]
+[ext_resource type="Resource" uid="uid://bol0rv284nvi2" path="res://resources/Waves/day3.tres" id="5_wpoua"]
+[ext_resource type="Resource" uid="uid://bkf2axi2b23in" path="res://resources/Waves/day4.tres" id="6_mgv3q"]
+[ext_resource type="Resource" uid="uid://df4e8bklg0vs2" path="res://resources/Waves/day5.tres" id="7_8bf8d"]
 
 [node name="WaveManager" type="Node2D"]
 script = ExtResource("1_l5jeo")
 DAY = Dictionary[int, ExtResource("2_cgj2o")]({
-1: ExtResource("3_sicov")
+1: ExtResource("3_sicov"),
+2: ExtResource("4_h0ldq"),
+3: ExtResource("5_wpoua"),
+4: ExtResource("6_mgv3q"),
+5: ExtResource("7_8bf8d")
 })

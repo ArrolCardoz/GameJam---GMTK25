@@ -80,8 +80,12 @@ func processLeaving()->void:
 	if navigation_agent_2d.is_navigation_finished():
 		var tween:Tween=create_tween()
 		await tween.tween_property(self,"modulate",Color(0,0,0,0),1)
-		_num_of_customers-=1
 		tween.tween_callback(queue_free)
+		_num_of_customers-=1
+		if _num_of_customers==0:
+			SignalHub.emit_no_customers(true)
+		else:
+			SignalHub.emit_no_customers(false)
 
 
 

@@ -42,5 +42,4 @@ func updateDayTimer(delta: float)->void:
 		updateNextWaveTime()
 
 func _process(delta: float) -> void:
-
 	updateDayTimer(delta)

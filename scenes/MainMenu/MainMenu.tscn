@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://c1ltln6x38igg"]
+[gd_scene load_steps=8 format=3 uid="uid://c1ltln6x38igg"]
+
+[ext_resource type="Script" uid="uid://c24sv2tvar1uv" path="res://scenes/MainMenu/MainMenu.gd" id="1_7j8ul"]
+[ext_resource type="Texture2D" uid="uid://bcadds16os8ek" path="res://assets/pauseMenu/controls 1.png" id="1_r8q81"]
+[ext_resource type="Texture2D" uid="uid://tjchos8lxt46" path="res://assets/buttons/blue_button00.png" id="2_7j8ul"]
+[ext_resource type="Texture2D" uid="uid://jlufvc4owpvg" path="res://assets/buttons/yellow_button00.png" id="3_0qq82"]
+[ext_resource type="Texture2D" uid="uid://dp24qpsdmtbhy" path="res://assets/buttons/green_button00.png" id="4_y5ja3"]
+[ext_resource type="LabelSettings" uid="uid://btipmt1430aqi" path="res://resources/font/PauseMenuFont.tres" id="5_mqas3"]
+[ext_resource type="Texture2D" uid="uid://c2iem1xc2m2id" path="res://assets/pauseMenu/controls 2.png" id="6_oy0qi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +15,96 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7j8ul")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -77.5
+offset_right = 95.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(85.24, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_r8q81")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Control3" type="Control" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="play" type="TextureButton" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7j8ul")
+texture_pressed = ExtResource("3_0qq82")
+texture_hover = ExtResource("4_y5ja3")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer/play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = ExtResource("5_mqas3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(92.695, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+localize_numeral_system = false
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -85.0
+offset_right = 54.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_oy0qi")
+
+[connection signal="button_down" from="MarginContainer2/HBoxContainer/VBoxContainer/play" to="." method="_on_play_button_down"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://r1cskwmcxrkc"]
+[gd_scene load_steps=26 format=4 uid="uid://r1cskwmcxrkc"]
 
 [ext_resource type="Script" uid="uid://cf6uwe5jhbhw1" path="res://scenes/LevelBase/LevelBase.gd" id="1_nrmop"]
 [ext_resource type="TileSet" uid="uid://b7dunda46sman" path="res://resources/tempTileMap.tres" id="2_e7jje"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://dxytj38ho5swl" path="res://scenes/pauseMenu/PauseMenu.tscn" id="13_6lwgi"]
 [ext_resource type="PackedScene" uid="uid://ecxqpm8u4p8g" path="res://scenes/BaseNPC/Npc.tscn" id="14_c3lg8"]
 [ext_resource type="PackedScene" uid="uid://bceseug4agee5" path="res://scenes/HUD/Hud.tscn" id="15_spxwu"]
-[ext_resource type="PackedScene" uid="uid://don6176amxje4" path="res://scenes/RecipieBook/RecipieBook.tscn" id="17_eq5i6"]
 [ext_resource type="PackedScene" uid="uid://qqdb714531w7" path="res://scenes/ItemHolder/PizzaStation.tscn" id="19_d08iv"]
 [ext_resource type="PackedScene" uid="uid://duxspfbvc8p2t" path="res://scenes/ItemHolder/Oven.tscn" id="20_gyevp"]
 [ext_resource type="PackedScene" uid="uid://bm5aqobojxvn1" path="res://scenes/ItemHolder/buyoven/BuyOven.tscn" id="21_fgp6d"]
@@ -94,14 +93,8 @@ anchor_bottom = 0.5
 [node name="StationDialogue" parent="CanvasLayer" instance=ExtResource("11_c3lg8")]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("15_spxwu")]
-process_mode = 3
-
-[node name="RecipieBook" parent="CanvasLayer" instance=ExtResource("17_eq5i6")]
-z_index = 1
-mouse_filter = 2
 
 [node name="pauseMenu" parent="CanvasLayer" instance=ExtResource("13_6lwgi")]
-z_index = 2
 
 [node name="Player" parent="." instance=ExtResource("3_ny4ya")]
 position = Vector2(98, 78)

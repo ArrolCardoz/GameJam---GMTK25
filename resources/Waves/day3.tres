@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Waves" load_steps=16 format=3 uid="uid://bol0rv284nvi2"]
+
+[ext_resource type="Script" uid="uid://dftmqfcypc0nv" path="res://classes/Waves.gd" id="1_m64j4"]
+[ext_resource type="Script" uid="uid://cxq7twxyvwvvv" path="res://classes/Wave.gd" id="2_7ekg8"]
+[ext_resource type="Resource" uid="uid://cprp7lngyhfy1" path="res://resources/Wave/day_1_classic_015.tres" id="3_6i4p6"]
+[ext_resource type="Resource" uid="uid://bs0f67knl3la8" path="res://resources/Wave/day_1_classic_030.tres" id="4_8i5i1"]
+[ext_resource type="Resource" uid="uid://ngklvyewbubr" path="res://resources/Wave/day_1_classic_045.tres" id="5_5oxip"]
+[ext_resource type="Resource" uid="uid://drx563my0purl" path="res://resources/Wave/day_1_classic_060.tres" id="6_mfpa5"]
+[ext_resource type="Resource" uid="uid://cvd8i6gq412cj" path="res://resources/Wave/day_1_classic_075.tres" id="7_tpl87"]
+[ext_resource type="Resource" uid="uid://dplohtxg3p4vm" path="res://resources/Wave/day_1_classic_090.tres" id="8_ir5dw"]
+[ext_resource type="Resource" uid="uid://bxc5ojmwqhutp" path="res://resources/Wave/day_1_classic_105.tres" id="9_mpu8k"]
+[ext_resource type="Resource" uid="uid://b147rxknohq8t" path="res://resources/Wave/day_1_classic_120.tres" id="10_sbehm"]
+[ext_resource type="Resource" uid="uid://e0xyt5yq2nyo" path="res://resources/Wave/day_1_classic_145.tres" id="11_deh1y"]
+[ext_resource type="Resource" uid="uid://d1uutor0hradb" path="res://resources/Wave/day_1_classic_160.tres" id="12_f6jlf"]
+[ext_resource type="Resource" uid="uid://c3q4cy8dh0665" path="res://resources/Wave/day_1_classic_175.tres" id="13_1hr56"]
+[ext_resource type="Resource" uid="uid://0h1eq7nu5u84" path="res://resources/Wave/day_1_classic_190.tres" id="14_wv4ko"]
+[ext_resource type="Resource" uid="uid://c512yivih6514" path="res://resources/Wave/endWave.tres" id="15_nuvjq"]
+
+[resource]
+script = ExtResource("1_m64j4")
+wave = Array[ExtResource("2_7ekg8")]([ExtResource("3_6i4p6"), ExtResource("4_8i5i1"), ExtResource("5_5oxip"), ExtResource("6_mfpa5"), ExtResource("7_tpl87"), ExtResource("8_ir5dw"), ExtResource("9_mpu8k"), ExtResource("10_sbehm"), ExtResource("11_deh1y"), ExtResource("12_f6jlf"), ExtResource("13_1hr56"), ExtResource("14_wv4ko"), ExtResource("15_nuvjq")])
+metadata/_custom_type_script = "uid://dftmqfcypc0nv"

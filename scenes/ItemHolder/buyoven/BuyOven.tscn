@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bm5aqobojxvn1"]
 
 [ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_3fhg8"]
-[ext_resource type="Script" uid="uid://baypla82k4a1g" path="res://scenes/ItemHolder/BuyOven.gd" id="2_3fhg8"]
+[ext_resource type="Script" uid="uid://baypla82k4a1g" path="res://scenes/ItemHolder/buyoven/BuyOven.gd" id="2_3fhg8"]
 [ext_resource type="Resource" uid="uid://dgkpth7e4ddp4" path="res://resources/Stations/buyOven.tres" id="2_fo4ij"]
 [ext_resource type="Texture2D" uid="uid://bk5hgv75x6mpr" path="res://assets/station/buy/buyOven.png" id="4_si0x4"]
 [ext_resource type="LabelSettings" uid="uid://w5vl1bhfbhho" path="res://resources/font/white_16.tres" id="4_ya7wk"]

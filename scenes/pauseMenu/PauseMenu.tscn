@@ -1,0 +1,178 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxytj38ho5swl"]
+
+[ext_resource type="Texture2D" uid="uid://bcadds16os8ek" path="res://assets/pauseMenu/controls 1.png" id="1_14c2h"]
+[ext_resource type="Script" uid="uid://cj1q10uuj0i1s" path="res://scenes/pauseMenu/PauseMenu.gd" id="1_74ek6"]
+[ext_resource type="Texture2D" uid="uid://tjchos8lxt46" path="res://assets/buttons/blue_button00.png" id="1_sf661"]
+[ext_resource type="Texture2D" uid="uid://jlufvc4owpvg" path="res://assets/buttons/yellow_button00.png" id="2_yt64n"]
+[ext_resource type="Texture2D" uid="uid://dp24qpsdmtbhy" path="res://assets/buttons/green_button00.png" id="3_y7vla"]
+[ext_resource type="LabelSettings" uid="uid://btipmt1430aqi" path="res://resources/font/PauseMenuFont.tres" id="4_yt64n"]
+[ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="5_y7vla"]
+[ext_resource type="Texture2D" uid="uid://c2iem1xc2m2id" path="res://assets/pauseMenu/controls 2.png" id="7_hnh3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_14c2h"]
+font = ExtResource("5_y7vla")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="pauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74ek6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -77.5
+offset_right = 95.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85.24, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_14c2h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="resume" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_sf661")
+texture_pressed = ExtResource("2_yt64n")
+texture_hover = ExtResource("3_y7vla")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = ExtResource("4_yt64n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_sf661")
+texture_pressed = ExtResource("2_yt64n")
+texture_hover = ExtResource("3_y7vla")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -15.0
+offset_right = 44.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = SubResource("LabelSettings_14c2h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_sf661")
+texture_pressed = ExtResource("2_yt64n")
+texture_hover = ExtResource("3_y7vla")
+stretch_mode = 0
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -15.0
+offset_right = 44.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = ExtResource("4_yt64n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/exit"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = -110.0
+offset_right = 190.0
+offset_bottom = -110.0
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(92.695, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+localize_numeral_system = false
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -85.0
+offset_right = 54.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_hnh3u")
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_button_down"]
