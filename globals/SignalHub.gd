@@ -41,6 +41,15 @@ signal start_day(i:int)
 func emit_start_day(i:int):
 	start_day.emit(i)
 
-signal get_cash(i:int)
-func emit_get_cash(i:int):
-	get_cash.emit(i)
+signal update_cash(i:int)
+func emit_update_cash(i:int):
+	update_cash.emit(i)
+
+signal spawn_oven(pos:Vector2)
+func emit_spawn_oven(pos:Vector2):
+	spawn_oven.emit(pos)
+
+
+signal spawn_table(pos:Vector2)
+func emit_spawn_table(pos:Vector2):
+	spawn_table.emit(pos)

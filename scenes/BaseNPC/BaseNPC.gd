@@ -69,7 +69,7 @@ func processEating()->void:
 
 func processLeaving()->void:
 	if !_leavingFlag:
-		SignalHub.emit_get_cash(CASH)
+		SignalHub.emit_update_cash(CASH)
 		debug_label.show()
 		debug_label.text="+%d"%CASH
 		sound.play()

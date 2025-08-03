@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Station" load_steps=3 format=3 uid="uid://dgkpth7e4ddp4"]
+
+[ext_resource type="Script" uid="uid://bmr2uufrtmuqt" path="res://classes/Station.gd" id="1_3ducm"]
+[ext_resource type="Texture2D" uid="uid://bk5hgv75x6mpr" path="res://assets/station/buy/buyOven.png" id="2_vxbux"]
+
+[resource]
+script = ExtResource("1_3ducm")
+name = "buyOven"
+texture = Dictionary[int, Texture2D]({
+0: ExtResource("2_vxbux"),
+1: ExtResource("2_vxbux"),
+2: ExtResource("2_vxbux"),
+3: ExtResource("2_vxbux")
+})
+maxItems = 0
+metadata/_custom_type_script = "uid://bmr2uufrtmuqt"

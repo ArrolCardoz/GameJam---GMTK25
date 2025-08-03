@@ -2,10 +2,10 @@ extends Control
 
 @onready var cash_label: Label = $MarginContainer/Panel/VBoxContainer/CashLabel
 
-var _cash:int=0
+var _cash:int=1000
 
 func _enter_tree() -> void:
-	SignalHub.get_cash.connect(update_cash)
+	SignalHub.update_cash.connect(update_cash)
 
 func _ready() -> void:
 	cash_label.text="%d"%_cash

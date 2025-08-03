@@ -7,7 +7,7 @@
 [node name="ProgressBar" type="TextureProgressBar"]
 offset_right = 16.0
 offset_bottom = 16.0
-fill_mode = 1
+nine_patch_stretch = true
 texture_under = ExtResource("1_ppivu")
 texture_progress = ExtResource("2_t2tyc")
 script = ExtResource("1_glb56")

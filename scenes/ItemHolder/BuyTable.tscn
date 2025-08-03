@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://crw34d6kodocw"]
+
+[ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_72k4q"]
+[ext_resource type="Script" uid="uid://caylvwwtecjr8" path="res://BuyTable.gd" id="2_f68ns"]
+[ext_resource type="Resource" uid="uid://26rx4sthpft4" path="res://resources/Stations/buyTable.tres" id="3_f68ns"]
+[ext_resource type="Texture2D" uid="uid://dnmyohst5eptj" path="res://assets/station/buy/buyTable.png" id="4_aogwn"]
+[ext_resource type="Shape2D" uid="uid://d70d8fn6y1oa" path="res://resources/Stations/32x32Collision.tres" id="5_37goo"]
+[ext_resource type="LabelSettings" uid="uid://w5vl1bhfbhho" path="res://resources/font/white_16.tres" id="6_e4oj1"]
+
+[node name="buyTable" instance=ExtResource("1_72k4q")]
+collision_layer = 16
+collision_mask = 1
+script = ExtResource("2_f68ns")
+cost = 20
+station = ExtResource("3_f68ns")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_aogwn")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = ExtResource("5_37goo")
+
+[node name="costLabel" type="Label" parent="." index="3"]
+visible = false
+offset_left = -60.0
+offset_top = -41.0
+offset_right = 80.0
+offset_bottom = -18.0
+text = "cost to buy table"
+label_settings = ExtResource("6_e4oj1")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="4"]

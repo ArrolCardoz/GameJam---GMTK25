@@ -7,6 +7,7 @@ var customerQueue:Array[BaseNPC]=[]
 
 func register_table(table: Table) -> void:
 	tables.append(table)
+	table_free(table)
 
 func request_table(npc: BaseNPC) -> void:
 	for table in tables:
