@@ -10,5 +10,6 @@ func remove_item()->void:
 	pass
 
 func place_item(item)->void:
+	sound.play()
 	for marker in markers.get_children():
 		if _item==null:continue

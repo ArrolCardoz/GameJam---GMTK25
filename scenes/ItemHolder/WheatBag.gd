@@ -9,7 +9,9 @@ func _ready() -> void:
 	super()
 	_isFull=true
 
-func getItem()->Item:return DOUGH
+func getItem()->Item:
+	sound.play()
+	return DOUGH
 
 func remove_item()->void:
 	pass

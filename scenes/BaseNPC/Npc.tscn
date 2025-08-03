@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da80x2tg2twyu" path="res://assets/thinking white cloud.png" id="4_auv6d"]
 [ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="5_huchj"]
 [ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="5_n0381"]
-[ext_resource type="AudioStream" uid="uid://kwdivyqbn431" path="res://assets/Sound/515643__mashedtatoes2__ding2.wav" id="8_0i78n"]
+[ext_resource type="AudioStream" uid="uid://sa0ikosehul2" path="res://assets/Sound/201159__kiddpark__cash-register.mp3" id="8_3rkl0"]
 [ext_resource type="PackedScene" uid="uid://cct5p51hj8x8o" path="res://scenes/ProgressBar/ProgressBar.tscn" id="9_3rkl0"]
 
 [sub_resource type="Curve" id="Curve_121yu"]
@@ -158,13 +158,12 @@ frame = 13
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3"]
 
 [node name="debug_label" type="Label" parent="." index="4"]
-visible = false
-offset_left = -28.0
-offset_top = -63.0
-offset_right = 118.0
-offset_bottom = 25.0
+offset_left = -8.0
+offset_top = -34.0
+offset_right = 138.0
+offset_bottom = 54.0
+rotation = 1.5708
 scale = Vector2(0.24, 0.24)
-text = "0000"
 label_settings = SubResource("LabelSettings_0i78n")
 
 [node name="ThinkingTimer" type="Timer" parent="." index="5"]
@@ -196,7 +195,8 @@ scale = Vector2(0.815, 0.815)
 texture = ExtResource("5_n0381")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="11"]
-stream = ExtResource("8_0i78n")
+stream = ExtResource("8_3rkl0")
+volume_db = -15.0
 
 [node name="ProgressBar" parent="." index="12" instance=ExtResource("9_3rkl0")]
 offset_left = -19.0

@@ -4,4 +4,5 @@ class_name PizzaStation
 
 const STATION_NAME:String="PizzaStation"
 func useStation()->void:
+	sound.play()
 	SignalHub.emit_open_station(station,_item)

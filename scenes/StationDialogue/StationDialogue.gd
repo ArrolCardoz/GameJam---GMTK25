@@ -9,6 +9,7 @@ class_name StationDialogue
 @onready var item_of_pizza_station: TextureRect = $PizzaStation/itemOfPizzaStation
 @onready var open_door: TextureRect = $Oven/openDoor
 @onready var closed_door: TextureRect = $Oven/closedDoor
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 
@@ -128,6 +129,7 @@ func useStation()->void:
 			ovenCloseDoor()
 		PizzaStation.STATION_NAME:
 			setCurrentItem(_cookingItem)
+			sound.play()
 
 func ovenOpenDoor()->void:
 	open_door.show()

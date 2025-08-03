@@ -13,7 +13,7 @@ config_version=5
 config/name="GMTK25"
 run/main_scene="uid://c1ltln6x38igg"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://cmr8kssytfho3"
 
 [autoload]
 

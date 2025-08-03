@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4x6tw7pl53db"]
+[gd_scene load_steps=10 format=3 uid="uid://b4x6tw7pl53db"]
 
 [ext_resource type="Script" uid="uid://eysmygo07vei" path="res://scenes/StationDialogue/StationDialogue.gd" id="1_wqfj2"]
 [ext_resource type="Texture2D" uid="uid://dqwvlfems54c7" path="res://assets/station/Oven/OvenBGDialogue.png" id="2_x0b1b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://iopshijqyegt" path="res://assets/Item/pizza/dough.png" id="4_8pnps"]
 [ext_resource type="Texture2D" uid="uid://k6cc3evmb5wt" path="res://assets/station/Oven/openBottomDoor.png" id="4_fmhuv"]
 [ext_resource type="Texture2D" uid="uid://rthkhqepdo7k" path="res://assets/station/Oven/closedBottomDoor.png" id="5_qgx2v"]
+[ext_resource type="AudioStream" uid="uid://bgxacaj3ujde4" path="res://assets/Sound/463395__vilkas_sound__vs-pop_5.mp3" id="9_8pnps"]
 
 [node name="StationDialogue" type="PanelContainer"]
 visible = false
@@ -31,6 +32,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="OvenTimer" type="Timer" parent="Oven"]
+wait_time = 3.0
 one_shot = true
 
 [node name="Label" type="Label" parent="Oven"]
@@ -179,5 +181,8 @@ layout_mode = 2
 text = "D"
 
 [node name="RecipieManager" parent="." instance=ExtResource("3_jpvnf")]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_8pnps")
 
 [connection signal="timeout" from="Oven/OvenTimer" to="." method="_on_pizza_timer_timeout"]

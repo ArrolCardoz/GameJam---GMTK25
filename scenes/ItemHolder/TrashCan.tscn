@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0wk8d4wnvya8"]
+[gd_scene load_steps=7 format=3 uid="uid://b0wk8d4wnvya8"]
 
 [ext_resource type="PackedScene" uid="uid://bqxcinrlhh7ob" path="res://scenes/ItemHolder/ItemHolder.tscn" id="1_up037"]
 [ext_resource type="Script" uid="uid://vc87nmy5n2gd" path="res://TrashCan.gd" id="2_cwq37"]
 [ext_resource type="Resource" uid="uid://c16m2lq5e7f4i" path="res://resources/Stations/trashCan.tres" id="3_cwq37"]
 [ext_resource type="Shape2D" uid="uid://d70d8fn6y1oa" path="res://resources/Stations/32x32Collision.tres" id="3_tp15b"]
 [ext_resource type="Texture2D" uid="uid://cnj2a5lqtsojd" path="res://assets/station/buy/trashCan.png" id="4_tp15b"]
+[ext_resource type="AudioStream" uid="uid://dhd441f5gurn5" path="res://assets/Sound/75130__robinhood76__01111-big-trash-can.wav" id="6_ekdr1"]
 
 [node name="trashCan" instance=ExtResource("1_up037")]
 collision_layer = 16
@@ -19,3 +20,5 @@ texture = ExtResource("4_tp15b")
 shape = ExtResource("3_tp15b")
 
 [node name="sound" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("6_ekdr1")
+volume_db = -27.45

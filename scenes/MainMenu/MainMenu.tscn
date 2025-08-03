@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1ltln6x38igg"]
+[gd_scene load_steps=15 format=3 uid="uid://c1ltln6x38igg"]
 
 [ext_resource type="Script" uid="uid://c24sv2tvar1uv" path="res://scenes/MainMenu/MainMenu.gd" id="1_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://bcadds16os8ek" path="res://assets/pauseMenu/controls 1.png" id="1_r8q81"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dp24qpsdmtbhy" path="res://assets/buttons/green_button00.png" id="4_y5ja3"]
 [ext_resource type="LabelSettings" uid="uid://btipmt1430aqi" path="res://resources/font/PauseMenuFont.tres" id="5_mqas3"]
 [ext_resource type="Texture2D" uid="uid://c2iem1xc2m2id" path="res://assets/pauseMenu/controls 2.png" id="6_oy0qi"]
+[ext_resource type="AudioStream" uid="uid://byp1lhttr07cv" path="res://assets/Sound/345851__hargissssound__spring-birds-raw-new-jersey.wav" id="9_y5ja3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y5ja3"]
 font = ExtResource("2_0qq82")
@@ -215,6 +216,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = 10.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -225,5 +230,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_0qq82")
 }
 autoplay = "load_main"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_y5ja3")
+volume_db = -14.93
+autoplay = true
 
 [connection signal="button_down" from="MarginContainer2/HBoxContainer/VBoxContainer/play" to="." method="_on_play_button_down"]
