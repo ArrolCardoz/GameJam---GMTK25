@@ -80,3 +80,11 @@ func emit_load_level()->void:
 signal load_main()
 func emit_load_main()->void:
 	load_main.emit()
+
+signal game_over()
+func emit_game_over():
+	game_over.emit()
+
+signal you_win()
+func emit_you_win():
+	you_win.emit()

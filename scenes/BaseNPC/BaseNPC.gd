@@ -25,6 +25,7 @@ var _state:STATES=STATES.WaitingForTable
 var _food:Item
 var _exitPos:Vector2
 var _leavingFlag:bool=false
+var _last_direction: int = 1
 
 func _ready() -> void:
 	start_progress_bar(waiting_for_table_timer)
@@ -96,11 +97,13 @@ func move() -> void:
 
 	var next_position: Vector2 = navigation_agent_2d.get_next_path_position()
 
+	$Sprite2D.flip_h = _last_direction ==-1
+
 	# Optional: extra safety distance check
 	if global_position.distance_to(next_position) < 4:
 		velocity = Vector2.ZERO
 		return
-
+	_last_direction = sign(velocity.x)
 	rotation = global_position.direction_to(next_position).angle()
 	velocity = transform.x * SPEED
 	move_and_slide()

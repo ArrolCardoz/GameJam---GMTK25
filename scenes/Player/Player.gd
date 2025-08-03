@@ -9,12 +9,17 @@ const INVENTORY_SIZE:int=5
 const GROUP_NAME: String = "Player"
 
 var _inventory:Inventory=Inventory.new(INVENTORY_SIZE)
+var _reset_inventory:Inventory=Inventory.new(INVENTORY_SIZE)
+
 var _pickups_in_range:Array[Pickup]
 var _stations_in_range:Array[ItemHolder]
 var _can_input:bool=true
 var _highlightItem:int=0
+var _last_direction: int = 1
+
 
 func _enter_tree() -> void:
+	SignalHub.start_day.connect(start_day)
 	SignalHub.item_dropped.connect(update_hud)
 	SignalHub.current_highlight_item.connect(current_highlight_item)
 	add_to_group(GROUP_NAME)
@@ -52,6 +57,9 @@ func _physics_process(_delta: float) -> void:
 		var moveVec:Vector2=process_input()
 		pickup_action.set_new_dir(moveVec)
 		velocity=moveVec*MOVE_SPEED
+		if velocity.x != 0:
+			_last_direction = sign(velocity.x)
+		$Sprite2D.flip_h = -_last_direction ==-1
 		move_and_slide()
 
 func process_input()->Vector2:
@@ -100,7 +108,9 @@ func update_hud(item:Item)->void:
 func current_highlight_item(i:int)->void:
 	_highlightItem=i
 
-
+func start_day(i:int)->void:
+	_inventory.replace_inventory(_reset_inventory.get_items())
+	update_hud(null)
 
 func on_picked_up_in_range(pickup:Pickup)->void:
 	_pickups_in_range.append(pickup)

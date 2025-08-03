@@ -23,10 +23,11 @@ func populateFoodManager()->void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("startDay"):
-		if _dayNum<_lastLevel:
+		if _canStartDay:
 			_canStartDay=false
+			if _dayNum>_lastLevel :
+				SignalHub.emit_you_win()
 			SignalHub.emit_start_day(_dayNum)
-		else: SignalHub.emit_you_win()
 	elif !_stationDialogue_ref._usingStation and Input.is_action_just_pressed("ese"):
 		await get_tree().create_timer(0.1).timeout
 		SignalHub.emit_pause_game()

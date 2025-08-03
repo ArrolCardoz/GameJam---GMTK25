@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bceseug4agee5"]
+[gd_scene load_steps=9 format=3 uid="uid://bceseug4agee5"]
 
 [ext_resource type="Script" uid="uid://b5ociry3ccfn5" path="res://scenes/HUD/Hud.gd" id="1_w101u"]
 [ext_resource type="Texture2D" uid="uid://drsfuylwm1fnc" path="res://assets/cash.png" id="2_i83uy"]
 [ext_resource type="LabelSettings" uid="uid://w5vl1bhfbhho" path="res://resources/font/white_16.tres" id="3_qbosp"]
+[ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="4_cxoif"]
+[ext_resource type="Texture2D" uid="uid://bv5fb1cwakcnt" path="res://assets/Item/pizza/slicedPeproniPizza.png" id="5_fb6t6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbosp"]
 bg_color = Color(0.03, 0.03, 0.03, 0.498039)
@@ -17,6 +19,14 @@ expand_margin_bottom = 1.0
 shadow_color = Color(1, 1, 1, 0.0980392)
 shadow_size = 1
 anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_fb6t6"]
+font = ExtResource("4_cxoif")
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_co4i3"]
+font = ExtResource("4_cxoif")
+font_size = 35
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -60,3 +70,107 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "00"
 label_settings = ExtResource("3_qbosp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 25.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbosp")
+
+[node name="Label" type="Label" parent="MarginContainer2/Panel"]
+layout_mode = 2
+text = "Day-1
+Press enter to start day
+ESC  -  controls 
+Space - Recipe book"
+label_settings = ExtResource("3_qbosp")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = -47.5
+offset_right = 191.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbosp")
+
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_fb6t6")
+
+[node name="Button" type="Button" parent="MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(132.62, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+icon = ExtResource("5_fb6t6")
+autowrap_mode = 2
+expand_icon = true
+
+[node name="dayCompleteLable" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = -47.5
+offset_right = 191.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="dayCompleteLable"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Panel" type="PanelContainer" parent="dayCompleteLable/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbosp")
+
+[node name="Label" type="Label" parent="dayCompleteLable/VBoxContainer/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Day Compelete!!"
+label_settings = SubResource("LabelSettings_co4i3")
+
+[connection signal="button_down" from="MarginContainer3/VBoxContainer/Button" to="." method="_on_button_button_down"]

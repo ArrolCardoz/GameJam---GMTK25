@@ -16,6 +16,9 @@ func setItem(item:Item)->void:
 	_item=item
 	place_item(_item)
 
+func _enter_tree() -> void:
+	SignalHub.start_day.connect(start_day)
+
 
 func _ready() -> void:
 	updateStationSprite()
@@ -45,6 +48,8 @@ func startStation(item:Item)->void:
 	#pure virtual function
 	pass
 
+func start_day(i:int)->void:
+	remove_item()
 
 func _on_area_entered(area: Area2D) -> void:
 	var parent:= area.get_parent()

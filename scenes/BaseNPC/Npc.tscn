@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ecxqpm8u4p8g"]
+[gd_scene load_steps=27 format=3 uid="uid://ecxqpm8u4p8g"]
 
 [ext_resource type="PackedScene" uid="uid://dw6u54x075ky8" path="res://scenes/BaseCharacter/BaseCharacter.tscn" id="1_k34f2"]
 [ext_resource type="Script" uid="uid://1cwe6g850v8h" path="res://scenes/BaseNPC/BaseNPC.gd" id="2_auv6d"]
-[ext_resource type="Texture2D" uid="uid://bgddvgvwxouk2" path="res://assets/player/player-single.png" id="2_d0na0"]
 [ext_resource type="Texture2D" uid="uid://drsfuylwm1fnc" path="res://assets/cash.png" id="3_121yu"]
+[ext_resource type="Texture2D" uid="uid://b0kw3e6bqfm25" path="res://assets/player/player.png" id="4_3rkl0"]
 [ext_resource type="Texture2D" uid="uid://da80x2tg2twyu" path="res://assets/thinking white cloud.png" id="4_auv6d"]
 [ext_resource type="FontFile" uid="uid://b0mi3ea6o6b2u" path="res://assets/Font/static/PixelifySans-Medium.ttf" id="5_huchj"]
 [ext_resource type="Texture2D" uid="uid://b1qn5bs1yvgc" path="res://assets/Item/pizza/cheeseAndSausedDough.png" id="5_n0381"]
@@ -39,6 +39,99 @@ height = 26.0
 font = ExtResource("5_huchj")
 font_size = 20
 
+[sub_resource type="Animation" id="Animation_of2ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_qalwf"]
+resource_name = "default"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_3rkl0"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gr2nq"]
+_data = {
+&"RESET": SubResource("Animation_of2ur"),
+&"default": SubResource("Animation_qalwf"),
+&"walk": SubResource("Animation_3rkl0")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qalwf"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_of2ur"]
+animation = &"default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gr2nq"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_akfhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qvpx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h4vm0"]
+advance_mode = 2
+advance_expression = "!velocity.is_zero_approx()
+"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rea43"]
+advance_mode = 2
+advance_expression = "velocity.is_zero_approx()
+"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1d8n8"]
+states/RESET/node = SubResource("AnimationNodeAnimation_qalwf")
+states/RESET/position = Vector2(360, 83)
+states/Start/position = Vector2(187, 94)
+states/default/node = SubResource("AnimationNodeAnimation_of2ur")
+states/default/position = Vector2(512, 83)
+states/walk/node = SubResource("AnimationNodeAnimation_gr2nq")
+states/walk/position = Vector2(663, 90)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_akfhp"), "RESET", "default", SubResource("AnimationNodeStateMachineTransition_2qvpx"), "default", "walk", SubResource("AnimationNodeStateMachineTransition_h4vm0"), "walk", "default", SubResource("AnimationNodeStateMachineTransition_rea43")]
+
 [node name="BaseNPC" instance=ExtResource("1_k34f2")]
 script = ExtResource("2_auv6d")
 SPEED = 50.0
@@ -58,8 +151,9 @@ process_material = SubResource("ParticleProcessMaterial_121yu")
 shape = SubResource("CapsuleShape2D_d0na0")
 
 [node name="Sprite2D" parent="." index="2"]
-modulate = Color(0.07, 0.163, 1, 1)
-texture = ExtResource("2_d0na0")
+texture = ExtResource("4_3rkl0")
+hframes = 19
+frame = 13
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3"]
 debug_enabled = true
@@ -110,6 +204,17 @@ offset_top = -18.0
 offset_right = 56.0
 offset_bottom = -11.0
 scale = Vector2(0.5, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="13"]
+libraries = {
+&"": SubResource("AnimationLibrary_gr2nq")
+}
+autoplay = "default"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="14"]
+tree_root = SubResource("AnimationNodeStateMachine_1d8n8")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="timeout" from="ThinkingTimer" to="." method="_on_thinking_timer_timeout"]
 [connection signal="timeout" from="WaitingForTableTimer" to="." method="_on_thinking_timer_timeout"]

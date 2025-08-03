@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 
 
 func gameOver()->void:
-	pass
+	SignalHub.emit_game_over()
 
 func start_day(day:int)->void:
 	_no_customers=false

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://by0yfcxnajbok" path="res://scenes/PickupAction/PickupAction.gd" id="1_geb37"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_geb37"]
-points = PackedVector2Array(-16, -6, 16, 0, -16, 6)
+points = PackedVector2Array(-16, -6, 20, 0, -16, 6)
 
 [node name="PickupAction" type="Node2D"]
 script = ExtResource("1_geb37")
